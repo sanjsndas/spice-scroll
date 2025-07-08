@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiceScroll - Recipe Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        :root {
+            --chili-red: #EF5350;
+            --deep-saffron-orange: #FF7043;
+            --scroll-beige: #FFF3E0;
+            --bold-charcoal: #263238;
+            --fresh-herb-green: #81C784;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--bold-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--scroll-beige);
+            scroll-behavior: smooth; /* For smooth scrolling reveals */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            color: var(--bold-charcoal);
+            margin-bottom: 15px;
+        }
+
+        h1 { font-size: 3em; color: var(--chili-red); text-align: center; margin-top: 50px; }
+        h2 { font-size: 2.5em; border-bottom: 2px solid var(--deep-saffron-orange); padding-bottom: 10px; margin-top: 40px; }
+        h3 { font-size: 1.8em; color: var(--deep-saffron-orange); }
+
+        a {
+            color: var(--chili-red);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--deep-saffron-orange);
+        }
+
+        button {
+            background-color: var(--chili-red);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--deep-saffron-orange);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header .logo {
+            font-family: var(--font-secondary);
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--scroll-beige);
+            display: inline-block;
+            position: relative;
+        }
+
+        header .logo::after {
+            content: '🌶️'; /* Chili swirl/spice trail concept */
+            position: absolute;
+            right: -25px;
+            top: 5px;
+            font-size: 0.7em;
+            color: var(--chili-red);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: var(--scroll-beige);
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: var(--chili-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), ; /* Placeholder image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden; /* For scroll effect */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0.1), transparent);
+            animation: unroll 5s ease-out forwards; /* Simulating unrolling effect */
+            transform-origin: left center;
+        }
+
+        @keyframes unroll {
+            0% { transform: scaleX(0); opacity: 0; }
+            100% { transform: scaleX(1); opacity: 1; }
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            animation: fadeIn 2.5s ease-out forwards;
+        }
+
+        .hero .cta-buttons a {
+            background-color: var(--chili-red);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+            animation: slideUp 3s ease-out forwards;
+        }
+
+        .hero .cta-buttons a:hover {
+            background-color: var(--deep-saffron-orange);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Key Sections */
+        .section-padding {
+            padding: 60px 20px;
+        }
+
+        .section-bg-light {
+            background-color: var(--scroll-beige);
+        }
+
+        .section-bg-dark {
+            background-color: var(--bold-charcoal);
+            color: white;
+        }
+
+        .section-bg-dark h2, .section-bg-dark h3 {
+            color: var(--scroll-beige);
+        }
+
+        .section-bg-dark a {
+            color: var(--fresh-herb-green);
+        }
+
+        /* Recipe Library */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .recipe-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .recipe-card-content {
+            padding: 20px;
+        }
+
+        .recipe-card-content h3 {
+            margin-top: 0;
+            color: var(--bold-charcoal);
+        }
+
+        .recipe-card-content .tags {
+            font-size: 0.9em;
+            color: gray;
+            margin-bottom: 10px;
+        }
+
+        .heat-meter {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .heat-meter span {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .heat-meter .chili {
+            color: var(--chili-red);
+            font-size: 1.2em;
+        }
+
+        /* Hover Tip (Conceptual) */
+        .hover-tip {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            font-size: 0.9em;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-out;
+            opacity: 0;
+            pointer-events: none;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .recipe-card:hover .hover-tip {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Filter Section */
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-controls select, .filter-controls button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid var(--deep-saffron-orange);
+            background-color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-controls select:focus, .filter-controls button:hover {
+            border-color: var(--chili-red);
+            box-shadow: 0 0 0 3px rgba(239, 83, 80, 0.2);
+        }
+
+        /* The Spice Scroll (Education Hub) */
+        .spice-education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .spice-card {
+            background-color: rgb(0, 0, 0);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .spice-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .spice-card h3 {
+            color: var(--chili-red);
+            margin-top: 10px;
+        }
+
+        .spice-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: var(--deep-saffron-orange);
+        }
+
+        /* Practical Cooking Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tip-card {
+            background-color: rgb(0, 0, 0);
+            border-left: 5px solid var(--fresh-herb-green);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .tip-card h3 {
+            color: var(--fresh-herb-green);
+            margin-top: 0;
+        }
+
+        /* Community Features */
+        .community-feature {
+            background-color: rgb(0, 0, 0);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(238, 238, 238, 0.997);
+            margin-bottom: 30px;
+        }
+
+        .community-feature h3 {
+            color: var(--chili-red);
+            text-align: center;
+        }
+
+        /* Scroll Editions Shop */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            padding-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .product-card h4 {
+            color: var(--bold-charcoal);
+            margin-bottom: 10px;
+        }
+
+        .product-card .price {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--deep-saffron-orange);
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+
+        footer .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-nav ul li {
+            margin: 0 15px 10px;
+        }
+
+        footer .footer-nav ul li a {
+            color: var(--scroll-beige);
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-nav ul li a:hover {
+            color: var(--chili-red);
+        }
+
+        .disclaimer-section {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: left;
+            max-height: 200px; /* Limit height for display */
+            overflow-y: auto; /* Enable scrolling for long text */
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .disclaimer-section::-webkit-scrollbar {
+            width: 8px;
+        }
+        .disclaimer-section::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .disclaimer-section::-webkit-scrollbar-thumb {
+            background: var(--chili-red);
+            border-radius: 10px;
+        }
+
+        .customer-satisfaction-info {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            .hero h1 { font-size: 3em; }
+            .hero p { font-size: 1.2em; }
+            .hero .cta-buttons a {
+                padding: 12px 20px;
+                margin: 5px;
+            }
+            .recipe-grid, .spice-education-grid, .tips-grid, .shop-grid {
+                grid-template-columns: 1fr;
+            }
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            header nav ul li {
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.8em; }
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SpiceScroll</div>
+            <nav>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Unroll the World of Flavor.</h1>
+            <p>Transform how curious cooks explore global flavors, bold recipes, and essential spice knowledge.</p>
+            <div class="cta-buttons">
+                <a href="#recipes">Explore Recipes</a>
+                <a href="#spices">Learn About Spices</a>
+                <a href="#tips">Master Bold Cooking</a>
+            </div>
+        </section>
+
+        <section id="recipes" class="section-padding section-bg-light">
+            <div class="container">
+                <h2>Spice-Powered Recipe Library</h2>
+                <p>Embark on a culinary adventure with our global recipe collection. Filter by spice level, cuisine, and discover your next favorite dish!</p>
+
+                <div class="filter-controls">
+                    <select id="spice-level-filter">
+                        <option value="">All Spice Levels</option>
+                        <option value="mild">Mild</option>
+                        <option value="medium">Medium</option>
+                        <option value="hot">Hot</option>
+                        <option value="blazing">Blazing Hot</option>
+                    </select>
+                    <select id="cuisine-filter">
+                        <option value="">All Cuisines</option>
+                        <option value="middle-eastern">Middle Eastern</option>
+                        <option value="indian">Indian</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="asian-fusion">Asian Fusion</option>
+                        <option value="mediterranean">Mediterranean</option>
+                        <option value="african">African</option>
+                        <option value="south-american">South American</option>
+                        </select>
+                    <button>Apply Filters</button>
+                </div>
+
+                <div class="recipe-grid">
+                    <div class="recipe-card">
+                        <img src="p1.webp" alt="Indian Chicken Curry">
+                        <div class="recipe-card-content">
+                            <h3>Classic Indian Chicken Curry</h3>
+                            <div class="heat-meter">
+                                <span>Heat:</span>
+                                <span class="chili">🌶️🌶️🌶️</span> (Hot)
+                            </div>
+                            <p class="tags">Cuisine: Indian, Spices: Cumin, Coriander, Turmeric, Garam Masala</p>
+                            <p>A fragrant and rich chicken curry, slow-cooked with aromatic spices to perfection. This recipe balances heat with deep, earthy flavors...</p>
+                            <p>Ingredients:</p>
+                            <ul>
+                                <li>500g boneless chicken thigh, cut into 1-inch pieces</li>
+                                <li>2 large onions, finely chopped</li>
+                                <li>3 tomatoes, puréed</li>
+                                <li>2 tbsp ginger-garlic paste</li>
+                                <li>1 tsp turmeric powder</li>
+                                <li>2 tsp coriander powder</li>
+                                <li>1 tsp cumin powder</li>
+                                <li>1 tsp red chili powder (adjust to taste)</li>
+                                <li>1 tsp garam masala</li>
+                                <li>1/2 cup plain yogurt</li>
+                                <li>Fresh cilantro for garnish</li>
+                                <li>2 tbsp oil</li>
+                                <li>Salt to taste</li>
+                                </ul>
+                            <p>Instructions:</p>
+                            <ol>
+                                <li>Heat oil in a large pot or Dutch oven over medium heat. Add chopped onions and sauté until golden brown, about 10-12 minutes. Stir frequently to prevent burning.</li>
+                                <li>Add ginger-garlic paste and sauté for another 2 minutes until fragrant.</li>
+                                <li>Stir in turmeric, coriander, cumin, and red chili powder. Cook for 1-2 minutes, adding a splash of water if the spices stick, to prevent burning and allow flavors to bloom. This "blooming" technique is crucial for developing depth...</li>
+                                <li>Add the tomato purée and cook until the oil separates from the mixture, approximately 8-10 minutes. This indicates the tomatoes are well-cooked and their acidity has mellowed...</li>
+                                <li>Stir in the chicken pieces and cook until sealed on all sides, about 5 minutes.</li>
+                                <li>Reduce heat to low. Whisk the yogurt in a small bowl to ensure it's smooth, then slowly add it to the curry, stirring constantly to prevent curdling. Cook for 5 minutes, allowing the yogurt to integrate into the sauce...</li>
+                                <li>Add 1 cup of water (or chicken broth for richer flavor), bring to a simmer, then cover and cook for 20-25 minutes, or until chicken is tender. Stir occasionally to prevent sticking.</li>
+                                <li>Stir in garam masala and simmer for another 5 minutes uncovered.</li>
+                                <li>Garnish with fresh cilantro and serve hot with rice or naan bread. This dish pairs wonderfully with a cooling raita to balance the heat...</li>
+                                </ol>
+                            <div class="hover-tip">
+                                <strong>Hover Tip: Cumin!</strong> Toast whole cumin seeds lightly before grinding for a deeper, nuttier flavor in your curry base.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recipe-card">
+                        <img src="p2.webp" alt="Mexican Taco Fiesta">
+                        <div class="recipe-card-content">
+                            <h3>Spicy Carnitas Tacos with Pickled Onions</h3>
+                            <div class="heat-meter">
+                                <span>Heat:</span>
+                                <span class="chili">🌶️🌶️</span> (Medium)
+                            </div>
+                            <p class="tags">Cuisine: Mexican, Spices: Ancho Chili, Cumin, Oregano</p>
+                            <p>Tender, slow-cooked pork carnitas infused with Mexican spices, perfect for building your own vibrant tacos. The pickled onions add a zesty contrast...</p>
+                            <p>This recipe dives into the heart of authentic Mexican street food, focusing on the slow-braising technique that makes carnitas so incredibly tender and flavorful. We'll explore the specific properties of ancho chilies, their mild heat, and rich, fruity undertones, contrasting them with the earthiness of cumin and the pungent notes of Mexican oregano. The pickling process for onions will be detailed, explaining the science behind the quick pickle and how it provides a crucial acidic balance to the fatty pork...</p>
+                            <p><strong>Ingredient Spotlight: Ancho Chili</strong> - Ancho chilies are dried poblano peppers. When rehydrated, they contribute a mild, sweet, and smoky flavor, foundational to many Mexican dishes. Their Scoville heat unit (SHU) is typically between 1,000-1,500, making them less hot than jalapeños but rich in flavor...</p>
+                            <p><strong>Pro Tip for Carnitas:</strong> Achieving that perfectly crispy exterior on your carnitas after slow-cooking is key. After the initial braise, broil or pan-fry the shredded pork in some of its rendered fat until golden and slightly charred. This adds a textural dimension that elevates the dish...</p>
+                            <div class="hover-tip">
+                                <strong>Hover Tip: Ancho Chili!</strong> For a deeper smoky flavor, lightly toast dried ancho chilies in a dry pan before rehydrating.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recipe-card">
+                        <img src="p3.webp" alt="Thai Green Curry">
+                        <div class="recipe-card-content">
+                            <h3>Vibrant Thai Green Curry with Tofu</h3>
+                            <div class="heat-meter">
+                                <span>Heat:</span>
+                                <span class="chili">🌶️🌶️🌶️🌶️</span> (Blazing Hot)
+                            </div>
+                            <p class="tags">Cuisine: Thai, Spices: Green Chilies, Galangal, Lemongrass, Kaffir Lime</p>
+                            <p>An authentic, fiery Thai green curry, bursting with fresh herbs and spices. This vegetarian version uses crispy tofu...</p>
+                            <p>Dive into the vibrant world of Thai cuisine with this intensely aromatic and spicy green curry. The heart of this dish lies in its homemade green curry paste, where fresh green chilies provide the fiery kick, complemented by the citrusy notes of lemongrass, the pungent warmth of galangal, and the unique floral aroma of kaffir lime leaves. Understanding the balance of these fresh ingredients is paramount to achieving an authentic flavor profile. We'll detail how to source fresh ingredients, and if not available, suitable substitutes. The role of coconut milk in tempering the heat while providing a creamy, rich base will be thoroughly discussed, along with tips for achieving the perfect consistency. The history of Thai curries, their regional variations, and the cultural significance of shared meals in Thailand will also be explored.</p>
+                            <p><strong>Spice Spotlight: Galangal vs. Ginger</strong> - While they look similar, galangal has a sharper, more citrusy, and piney flavor compared to ginger's pungent, spicy, and sweet notes. It's essential for authentic Thai and Southeast Asian flavors.</p>
+                            <p><strong>Balancing the Heat:</strong> For those who find the "Blazing Hot" level too intense, this recipe will offer clear guidance on how to adjust the number of green chilies. Additionally, we'll suggest incorporating more coconut milk or a squeeze of lime juice at the end to mellow the spice without sacrificing flavor. The interplay between sweet, sour, salty, and spicy is the cornerstone of Thai cooking, and this recipe exemplifies it...</p>
+                            <div class="hover-tip">
+                                <strong>Hover Tip: Galangal!</strong> Essential for authentic Thai curry, providing a sharper, more citrusy note than ginger.
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+            </div>
+        </section>
+
+        <section id="spices" class="section-padding section-bg-dark">
+            <div class="container">
+                <h2>The Spice Scroll — Education Hub</h2>
+                <p>Unravel the mysteries of the world's most fascinating spices. Learn their origins, culinary uses, and unique flavor profiles.</p>
+                <div class="spice-education-grid">
+                    <div class="spice-card">
+                        <div class="icon">🌿</div>
+                        <h3>Turmeric</h3>
+                        <p>Origin: India & Southeast Asia</p>
+                        <p>Uses: Curries, lattes, anti-inflammatory</p>
+                        <p>Flavor: Earthy, bitter, slightly peppery</p>
+                        <p><strong>Deep Dive:</strong> Turmeric, the "golden spice," is more than just a coloring agent. Its vibrant hue comes from curcumin, a powerful antioxidant. Historically, it has been used in Ayurvedic medicine for thousands of years... Its culinary journey from ancient India to global superfood is fascinating. We'll explore its different forms (fresh root, ground powder), how to activate its flavors, and common pairings in various cuisines. Discover why a pinch of black pepper boosts its bioavailability...</p>
+                        <p>...</p>
+                    </div>
+                    <div class="spice-card">
+                        <div class="icon">🍂</div>
+                        <h3>Cinnamon</h3>
+                        <p>Origin: Sri Lanka, China</p>
+                        <p>Uses: Desserts, savory dishes, beverages</p>
+                        <p>Flavor: Sweet, woody, warm, spicy</p>
+                        <p><strong>Deep Dive:</strong> Cinnamon, one of the oldest spices known, comes in various forms like Ceylon (true) and Cassia. Each has distinct flavor profiles and uses. We'll delve into its historical trade routes, its role in ancient rituals, and its surprising versatility in both sweet and savory dishes from Mexican mole to Middle Eastern stews. Learn the best way to grind cinnamon sticks for maximum aroma...</p>
+                        <p>...</p>
+                    </div>
+                    <div class="spice-card">
+                        <div class="icon">🌑</div>
+                        <h3>Black Pepper</h3>
+                        <p>Origin: Southern India</p>
+                        <p>Uses: Universal seasoning, marinades, rubs</p>
+                        <p>Flavor: Pungent, woody, spicy, floral</p>
+                        <p><strong>Deep Dive:</strong> Often overlooked, black pepper is the "King of Spices." We'll explore its journey from a precious commodity to a kitchen staple. Discover the nuances between different peppercorns (black, white, green, pink), the science behind its pungency (piperine), and why fresh-ground pepper makes all the difference. Its historical impact on global trade and exploration cannot be overstated...</p>
+                        <p>...</p>
+                    </div>
+                    </div>
+
+                <h3 style="margin-top: 50px; text-align: center;">Interactive Spice Map</h3>
+                <p style="text-align: center;">(Image of a world map with clickable spice regions, leading to more detailed spice information.)</p>
+                <img src="p4.webp" alt="Global Spice Map" style="margin: 0 auto;">
+                <p style="margin-top: 20px;">Explore the geographical origins of spices, tracing their ancient routes and discovering how they've shaped culinary traditions worldwide. Click on a region to unveil its signature spices and their cultural significance. From the Silk Road's spice caravans to modern sustainable farming practices, this interactive map is your passport to spice discovery.</p>
+                <h3 style="margin-top: 50px;">Beginner Guides: Mastering Spice Techniques</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>Grinding Spices</h3>
+                        <p>Unlock fresh aromas by grinding your own spices. Learn the difference between a mortar and pestle and an electric grinder, and when to use each for optimal results. Techniques for achieving fine powders vs. coarse textures for different culinary applications...</p>
+                        </div>
+                    <div class="tip-card">
+                        <h3>Blooming Spices</h3>
+                        <p>Discover the magic of "blooming" spices in oil or ghee. This crucial technique releases fat-soluble compounds, intensifying flavors and aromas. We'll explain the science behind it, ideal temperatures, and which spices benefit most...</p>
+                        </div>
+                    <div class="tip-card">
+                        <h3>Storing Spices</h3>
+                        <p>Preserve potency and extend shelf life! Proper storage is key. Learn about airtight containers, cool dark places, and the enemy of spices: light, heat, and air. We'll guide you on how long different forms of spices last...</p>
+                        </div>
+                    <div class="tip-card">
+                        <h3>Blending Your Own</h3>
+                        <p>Become a spice artisan! Learn the fundamentals of creating balanced spice blends. Explore classic combinations like Garam Masala, Ras el Hanout, or Baharat, and how to develop your own signature mixes. Understanding flavor profiles is key...</p>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="tips" class="section-padding section-bg-light">
+            <div class="container">
+                <h2>Practical Cooking Tips Section</h2>
+                <p>Unlock the secrets to mastering bold flavors in your home kitchen with these essential tips and tricks.</p>
+                <h3>Everyday Spice Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>Start Small with New Spices</h3>
+                        <p>When experimenting with unfamiliar spices, always begin with a small amount (e.g., 1/4 teaspoon). You can always add more, but you can't easily remove it. This cautious approach allows you to build layers of flavor gradually and adjust to your palate. We'll discuss why certain spices are more potent than others and how to gauge their impact in a dish...</p>
+                        </div>
+                    <div class="tip-card">
+                        <h3>Toast (Bloom) Spices for Deeper Aroma</h3>
+                        <p>Dry-toasting whole or ground spices in a pan before adding them to a dish awakens their essential oils, intensifying their fragrance and flavor. Learn the correct technique, ideal temperatures, and how to avoid burning them. This process significantly transforms the culinary experience...</p>
+                        </div>
+                    <div class="tip-card">
+                        <h3>Salt Enhances Spice Flavors</h3>
+                        <p>Salt isn't just for seasoning; it's a flavor enhancer. A judicious amount of salt can make the nuanced notes of spices pop, brightening the overall profile of a dish. We'll explain the interplay between salt and spices and how to use them synergistically...</p>
+                        </div>
+                    <div class="tip-card">
+                        <h3>Store Properly for Maximum Freshness</h3>
+                        <p>Light, heat, and air are the enemies of spice freshness. Store spices in airtight containers in a cool, dark place, away from direct sunlight and heat sources like stovetops. This preserves their volatile oils and extends their potency, ensuring your dishes always have vibrant flavor...</p>
+                        </div>
+                    </div>
+
+                <h3 style="margin-top: 50px;">Heat Balance Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>Dairy or Coconut Milk Cools Down Heat</h3>
+                        <p>If your dish is too spicy, dairy products like yogurt, milk, or sour cream, or creamy coconut milk, can help. The fats and proteins in these ingredients bind with capsaicin (the compound that causes heat), neutralizing its intensity. This is a common technique in Indian and Thai cuisines...</p>
+                        </div>
+                    <div class="tip-card">
+                        <h3>Acidity Brightens Spice-Heavy Dishes</h3>
+                        <p>A squeeze of lime or lemon juice, a splash of vinegar, or a dollop of fresh tomato can cut through the richness and heat of a heavily spiced dish, adding a refreshing brightness. Acidity balances flavors and prevents dishes from tasting flat or overly dominant in spice. It also helps in digestion...</p>
+                        </div>
+                    <div class="tip-card">
+                        <h3>A Little Sugar Balances Fiery Blends</h3>
+                        <p>A tiny pinch of sugar or a touch of honey can surprisingly balance the intensity of a very spicy dish. It doesn't necessarily reduce the heat but helps to round out the flavors, making the heat more palatable and less overwhelming. This is often seen in Asian cooking...</p>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="challenges" class="section-padding section-bg-dark">
+            <div class="container">
+                <h2>Scroll & Cook Challenges</h2>
+                <p>Join our monthly challenges, explore global spice themes, and share your culinary creations with the SpiceScroll community!</p>
+                <div class="community-feature">
+                    <h3>July Challenge: The Magic of Sumac!</h3>
+                    <p>This month, we challenge you to explore the tangy, bright flavor of Sumac. Create a dish that highlights this vibrant Middle Eastern spice. Share your photos and recipes using #SpiceScrollSumacChallenge for a chance to win a curated Middle Eastern spice kit!</p>
+                    <button>View Challenge Details</button>
+                    <p style="margin-top: 20px;"><strong>Previous Challenges:</strong></p>
+                    <ul>
+                        <li><strong>June:</strong> The Versatility of Paprika - From Hungarian Goulash to Spanish Chorizo. Explore diverse paprika types (sweet, smoked, hot) and their impact on color and flavor.</li>
+                        <li><strong>May:</strong> Cardamom's Charm - Sweet and Savory applications in Nordic Baking and Indian Curries. Delve into green vs. black cardamom and their unique aromatic profiles.</li>
+                        </ul>
+                    <p style="margin-top: 20px;"><strong>How to Participate:</strong></p>
+                    <ol>
+                        <li>Choose a recipe that features the monthly challenge spice prominently. You can use one of our recipes or create your own!</li>
+                        <li>Cook the dish, taking vibrant photos of the process and final plating.</li>
+                        <li>Write a brief description of your dish, including any personal tips or twists.</li>
+                        <li>Share on social media with the designated hashtag (e.g., #SpiceScrollSumacChallenge) or upload directly to our platform.</li>
+                        <li>Engage with other participants, leave comments, and upvote your favorite submissions.</li>
+                    </ol>
+                    <p style="margin-top: 20px;"><strong>Prizes and Badges:</strong></p>
+                    <p>Winners receive exclusive SpiceScroll merchandise, limited-edition spice blends, and a featured spot on our homepage. Every participant who completes a challenge earns a digital badge to showcase on their profile, building their "Spice Explorer" reputation!</p>
+                    </div>
+            </div>
+        </section>
+
+        <section id="shop" class="section-padding section-bg-light">
+            <div class="container">
+                <h2>Spice Shop - Curated Blends & Global Kits</h2>
+                <p>Elevate your pantry with our expertly curated spice blends, rare single-origin spices, and limited "Scroll Editions."</p>
+                <div class="shop-grid">
+                    <div class="product-card">
+                        <img src="p4.webp" alt="Signature Garam Masala">
+                        <h4>SpiceScroll Signature Garam Masala</h4>
+                        <p class="price">$12.99</p>
+                        <p>Our signature blend of 11 freshly roasted and ground spices, perfect for authentic Indian curries and stews. Hand-blended in small batches for maximum freshness and aroma...</p>
+                        <button>Add to Cart</button>
+                        </div>
+                    <div class="product-card">
+                        <img src="p5.webp" alt="Mexican Fiesta Kit">
+                        <h4>Mexican Fiesta Spice Kit</h4>
+                        <p class="price">$29.99</p>
+                        <p>Everything you need for a Mexican culinary journey: Ancho Chili Powder, Cumin, Mexican Oregano, Smoked Paprika, and a recipe guide for tacos, enchiladas, and more!</p>
+                        <button>Add to Cart</button>
+                        </div>
+                    <div class="product-card">
+                        <img src="p6.webp" alt="Scroll Edition Saffron">
+                        <h4>Scroll Edition: Premium Persian Saffron</h4>
+                        <p class="price">$39.99</p>
+                        <p>Limited quantity! Hand-picked, Sargol grade saffron from Khorasan, Iran. Unparalleled aroma and vibrant color for paella, risotto, and exquisite desserts...</p>
+                        <button>Add to Cart</button>
+                        </div>
+                    </div>
+                <p style="margin-top: 40px; text-align: center;"><strong>Why choose SpiceScroll Spices?</strong></p>
+                <p style="text-align: center;">We meticulously source our spices from ethical and sustainable farms worldwide. Our commitment to quality means fresh, potent flavors in every pinch. Each blend is crafted to inspire culinary creativity and bring authentic global tastes to your kitchen. We conduct rigorous testing to ensure purity and potency, and our packaging is designed to maintain freshness for longer. Learn more about our sourcing philosophy and meet our growers around the world. We believe in direct trade relationships that empower local communities and ensure fair practices from farm to table. Our "Seed to Spoon" initiative highlights the journey of each spice, giving you complete transparency and confidence in your purchase.</p>
+                </div>
+        </section>
+
+        <section id="community" class="section-padding section-bg-dark">
+            <div class="container">
+                <h2>Community-Driven Features</h2>
+                <p>Connect with fellow food explorers, share your culinary journey, and get inspired by others!</p>
+                <div class="community-feature">
+                    <h3>Upvoted User Tips</h3>
+                    <p>Discover invaluable cooking hacks and spice insights from our passionate community members. The best tips appear directly beneath relevant recipes!</p>
+                    <p><em>"For a richer tomato sauce, add a pinch of smoked paprika early in the cooking process. It adds depth without overpowering!"</em> - User: FlavorFanatic88</p>
+                    <p><em>"If your chili is too hot, stir in a spoonful of peanut butter! It's a game-changer for balancing intense heat."</em> - User: SpiceTamer</p>
+                    <p>Our community is a vibrant hub of culinary wisdom. Users can submit their own tips directly on recipe pages, and through upvoting, the most helpful and creative tips rise to the top. This peer-to-peer learning environment fosters a dynamic exchange of knowledge, making SpiceScroll not just a recipe platform but a living cookbook shaped by real home cooks. We moderate submissions to ensure quality and relevance, but the content itself is a testament to the collective expertise of our users...</p>
+                    </div>
+                <div class="community-feature">
+                    <h3>Scroll of the Day</h3>
+                    <p>A daily dose of delicious! Get a random recipe or fascinating spice fact to spark your culinary inspiration. Never run out of new things to try or learn!</p>
+                    <p><em>Today's Scroll:</em> Did you know that nutmeg is toxic in large doses, but a tiny grating adds warmth and depth to both sweet and savory dishes?</p>
+                    <p>The "Scroll of the Day" is designed to be a delightful daily surprise, encouraging continuous engagement with our diverse content. Each day, a new entry is randomly selected from our vast database of recipes, spice deep dives, and trivia. It's a perfect way to discover hidden gems you might not have found otherwise. Users can also 'save' their favorite Scrolls of the Day to a personal collection for future reference...</p>
+                    </div>
+                <div class="community-feature">
+                    <h3>Featured User Stories & Success Badges</h3>
+                    <p>Read inspiring stories from home cooks who transformed their cooking with SpiceScroll. Earn badges for mastering spices, completing challenges, and sharing your knowledge!</p>
+                    <p><em>"I used to only cook with salt and pepper. Thanks to SpiceScroll, I'm now making Ethiopian Doro Wat and blending my own Berbere!"</em> - Story of Priya S.</p>
+                    <p>Our "Featured User Stories" highlight the incredible journeys of our community members, showcasing how SpiceScroll has empowered them to become more adventurous and skilled cooks. These personal narratives serve as powerful inspiration for others, demonstrating the tangible impact of our platform. We feature a new story monthly, often accompanied by a video interview or a photo essay of their culinary transformation. The "Success Badges" system gamifies the learning process, offering recognition for milestones achieved, such as "Master of Marinades," "Curry Connoisseur," "Spice Historian," or "Chili Champion." These badges are proudly displayed on user profiles, encouraging friendly competition and continuous learning within the community...</p>
+                    </div>
+            </div>
+        </section>
+
+        <section id="blog" class="section-padding section-bg-light">
+            <div class="container">
+                <h2>Spice Stories Blog</h2>
+                <p>Dive deeper into global food cultures, get exclusive chef interviews, and learn fun spice trivia.</p>
+                <div class="recipe-grid"> <div class="recipe-card">
+                        <div class="recipe-card-content">
+                            <h3>Journey to Kerala: India's Spice Coast</h3>
+                            <p class="tags">Category: Food Culture, Travel</p>
+                            <p>Explore the lush landscapes of Kerala, the birthplace of many beloved spices. From cardamom hills to pepper vines, we trace the origins of Indian spices and their profound impact on regional cuisine and global trade. Learn about sustainable farming practices and the lives of spice farmers...</p>
+                            <p>The southern Indian state of Kerala, often called the "Spice Garden of India," has captivated traders and explorers for millennia. Its fertile lands and humid climate create ideal conditions for growing an incredible variety of spices, including black pepper, cardamom, cloves, cinnamon, and nutmeg. This article embarks on a virtual journey through these verdant plantations, offering a glimpse into the arduous yet rewarding work of spice cultivation. We'll explore the history of the spice trade from ancient times, when Roman ships sailed to Muziris (an ancient port in Kerala) seeking black pepper, to the colonial era, which dramatically reshaped global economies through spice monopolies. We'll also highlight modern efforts in sustainable agriculture and fair trade practices, ensuring that the legacy of Kerala's spices continues for generations to come...</p>
+                            <a href="#" class="read-more-button">Read More</a>
+                        </div>
+                    </div>
+                    <div class="recipe-card">
+                        <div class="recipe-card-content">
+                            <h3>Chef Spotlight: Mastering Mediterranean Flavors</h3>
+                            <p class="tags">Category: Chef Interviews, Culinary Techniques</p>
+                            <p>We sit down with Chef Elena Petrova, celebrated for her vibrant Mediterranean cuisine, to discuss her philosophy on using herbs and spices. Learn her secret tips for balancing flavors and creating healthy, aromatic dishes...</p>
+                            <p>Chef Elena Petrova, proprietor of "Olive & Thyme" in Barcelona, shares her insights into the art of Mediterranean cooking. Her approach emphasizes fresh, seasonal ingredients uplifted by the judicious use of herbs like oregano, thyme, rosemary, and spices such as sumac, cumin, and paprika. In this exclusive interview, Chef Elena reveals her culinary journey, from her grandmother's kitchen in Greece to her acclaimed restaurant. She provides practical advice for home cooks, including how to select the freshest herbs, the optimal time to add spices to different dishes, and her favorite spice blends for various regional Mediterranean specialties. We delve into her signature dishes, dissecting the flavor profiles and techniques that make them stand out. Elena also discusses the health benefits of Mediterranean spices and how they contribute to a wholesome diet...</p>
+                            <a href="#" class="read-more-button">Read More</a>
+                        </div>
+                    </div>
+                    <div class="recipe-card">
+                        <div class="recipe-card-content">
+                            <h3>Fun Spice Trivia: Test Your Knowledge!</h3>
+                            <p class="tags">Category: Trivia, How-To</p>
+                            <p>Think you know your spices? Take our challenging trivia quiz and discover surprising facts about common and exotic spices. Learn interesting historical anecdotes, botanical facts, and culinary secrets...</p>
+                            <p>Are you a true spice aficionado? Put your knowledge to the test with our comprehensive and entertaining spice trivia quiz! From the origins of vanilla to the most expensive spice in the world, this quiz covers a wide array of fascinating facts. Beyond just questions, we provide detailed explanations for each answer, offering deeper insights into the history, chemistry, and cultural significance of spices. Learn about the legendary "Spice Islands," the role of spices in ancient medicines, and the surprising uses of everyday spices. This interactive post will not only challenge your memory but also expand your understanding of the incredible world of flavor. Prepare to be amazed by the hidden stories behind the spices in your pantry!</p>
+                            <a href="#" class="read-more-button">Read More</a>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section class="section-padding section-bg-dark">
+            <div class="container" style="text-align: center;">
+                <h2>Interactive Experiences</h2>
+                <p>Engage with SpiceScroll in new and exciting ways!</p>
+                <div class="community-feature" style="background-color: var(--scroll-beige); color: var(--bold-charcoal);">
+                    <h3>Personalized "Find Your Flavor" Quiz</h3>
+                    <p>Answer a few quick questions about your taste preferences and cooking style, and we'll suggest recipes and spice kits tailored just for you!</p>
+                    <button>Start Quiz</button>
+                    <p style="margin-top: 15px;">This interactive quiz is powered by a sophisticated algorithm that analyzes your responses to questions about your preferred spice levels, favorite cuisines, cooking experience, and ingredient availability. Based on your unique "flavor profile," it generates personalized recommendations from our extensive recipe library and suggests complementary spice blends from our shop. It's like having a personal culinary guide at your fingertips, helping you discover new dishes and ingredients perfectly suited to your palate and skill level. The quiz adapts over time as you explore more recipes and spices on the platform, refining its suggestions for an ever-evolving culinary journey. We delve into the science of taste perception and how different flavor compounds interact, explaining how our quiz leverages this knowledge to provide accurate and delightful recommendations. Privacy of your taste preferences is paramount, and your data is used solely to enhance your SpiceScroll experience.</p>
+                    </div>
+                <div class="community-feature" style="background-color: var(--scroll-beige); color: var(--bold-charcoal);">
+                    <h3>Spice Tracker: Your Personal Spice Shelf</h3>
+                    <p>Digitize your spice collection! Add spices you own, track their freshness, and get recipe suggestions based on what's in your pantry. Never buy a duplicate again!</p>
+                    <button>Access Spice Tracker</button>
+                    <p style="margin-top: 15px;">The Spice Tracker is your ultimate digital pantry organizer for spices. Simply input the spices you currently have, their approximate purchase date, and their form (whole, ground). Our system will then provide estimated freshness dates, helping you utilize your spices at their peak potency. But it's more than just an inventory tool; the Spice Tracker dynamically suggests recipes from our library that specifically use the spices you have on hand, minimizing waste and inspiring impromptu cooking sessions. You can also create custom "want lists" for spices you'd like to acquire. The tracker integrates seamlessly with our Spice Shop, allowing for quick reordering of depleted spices or easy purchase of new ones for suggested recipes. This feature revolutionizes meal planning by making your existing ingredients the starting point for culinary exploration, promoting efficiency and creativity in the kitchen. We provide detailed information on how to best catalog your spices, including tips for identifying different varieties and understanding their shelf lives.</p>
+                    </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#recipes">Recipes</a></li>
+                    <li><a href="#spices">Spices</a></li>
+                    <li><a href="#tips">Tips</a></li>
+                    <li><a href="#challenges">Challenges</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#disclaimer">Disclaimer</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2025 SpiceScroll. All rights reserved. Unroll the World of Flavor.</p>
+            <p><strong>Customer Satisfaction:</strong></p>
+            <div class="customer-satisfaction-info">
+                <p>At SpiceScroll, your satisfaction is our top priority. We are committed to providing the highest quality culinary experiences and educational content. If you have any questions, concerns, or feedback regarding our recipes, spice information, products, or your overall experience with our platform, please do not hesitate to contact our dedicated customer support team. We offer a comprehensive FAQ section to address common queries, and our support representatives are available via email and live chat during business hours. We value your input immensely as it helps us continuously improve and refine our services to better meet your needs. We believe in building a long-lasting relationship with our community of curious cooks, and your trust is paramount to us. Our goal is to ensure every scroll brings you joy, knowledge, and delicious results. We pride ourselves on transparent communication and prompt resolution of any issues. Whether it's a technical glitch on the website, a question about a specific spice's origin, or a concern about a product you've purchased, we are here to assist you every step of the way. We also encourage you to leave reviews and ratings for recipes and products, as this feedback directly contributes to the quality and relevance of our content for the entire SpiceScroll community. Our customer satisfaction policy extends to ensuring the freshness and authenticity of all our spice products. If you receive a product that does not meet our high standards, we offer a hassle-free return and exchange policy. Your culinary success and happiness are the driving forces behind everything we do at SpiceScroll. We constantly analyze user feedback to implement improvements, from refining search functionalities to adding new categories of content based on popular demand. Your journey with spices is our journey, and we are dedicated to making it as flavorful and enriching as possible. We are always listening and evolving. Join our newsletter to receive updates on new features, content, and exclusive offers, and be part of our growing community. We conduct regular surveys and usability tests to gather direct feedback and ensure that our platform remains intuitive, informative, and inspiring. Your voice truly shapes the future of SpiceScroll.</p>
+                </div>
+            <p><strong>Address:</strong> SpiceScroll HQ, 123 Flavor Lane, Culinary District, Delhi, India - 110001</p>
+            <p><strong>Contact:</strong> info@spicescroll.com | +91 98765 43210</p>
+
+            <section id="disclaimer" class="disclaimer-section">
+                <h3>Disclaimer: Important Information</h3>
+                <p>
+                    Please read this disclaimer carefully before using the SpiceScroll website (the "Platform"). By accessing or using the Platform, you acknowledge and agree to be bound by the terms and conditions set forth in this disclaimer. If you do not agree with any part of this disclaimer, you must not use the Platform.
+                </p>
+                <p>
+                    <strong>1. Culinary Information and Recipes:</strong> The recipes, cooking tips, spice information, and all other culinary content provided on SpiceScroll are intended for informational and educational purposes only. While we strive to provide accurate and reliable information, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the Platform or the information, products, services, or related graphics contained on the Platform for any purpose. Any reliance you place on such information is therefore strictly at your own risk. Culinary results may vary depending on individual skill, ingredients used, equipment, and other factors beyond our control. We encourage users to exercise caution and use their judgment when preparing and consuming food, especially concerning allergies, dietary restrictions, and food safety practices. Always consult with a qualified health professional or registered dietitian for personalized dietary advice, especially if you have existing health conditions or food sensitivities.
+                </p>
+                <p>
+                    <strong>2. Health and Medicinal Information:</strong> The information provided on spices, their historical uses, traditional medicinal properties, and purported health benefits is for general knowledge and educational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on this Platform. SpiceScroll does not endorse or recommend any specific tests, physicians, products, procedures, opinions, or other information that may be mentioned on the Platform. Reliance on any information provided by SpiceScroll, its employees, others appearing on the Platform at the invitation of SpiceScroll, or other visitors to the Platform is solely at your own risk. Certain spices may interact with medications or cause adverse reactions in some individuals. It is crucial to consult with your healthcare provider before incorporating any new spices, especially in medicinal quantities, into your diet, particularly if you are pregnant, nursing, have a pre-existing medical condition, or are taking medication.
+                </p>
+                <p>
+                    <strong>3. Product Information (Spice Shop):</strong> Information regarding products sold in the Spice Shop (e.g., spice blends, kits) is provided by SpiceScroll based on manufacturer specifications and general culinary knowledge. While we endeavor to ensure that product descriptions and images are accurate, variations may occur. Product availability is subject to change without notice. Prices are subject to change. We recommend that you carefully read the product labels, ingredients lists, and any warnings before using any product. SpiceScroll is not responsible for any adverse reactions or outcomes resulting from the consumption or use of products purchased through our Platform. All sales are subject to our separate Terms and Conditions of Sale.
+                </p>
+                <p>
+                    <strong>4. External Links:</strong> The Platform may contain links to third-party websites or services that are not owned or controlled by SpiceScroll. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them. You acknowledge and agree that SpiceScroll shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such websites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party websites or services that you visit.
+                </p>
+                <p>
+                    <strong>5. User-Generated Content:</strong> SpiceScroll allows users to submit and share content, including recipes, cooking tips, comments, and stories (User-Generated Content). While we encourage community interaction, SpiceScroll does not pre-screen, endorse, or verify User-Generated Content. The views and opinions expressed in User-Generated Content are solely those of the authors and do not necessarily reflect the official policy or position of SpiceScroll. We reserve the right, but are not obligated, to monitor, edit, or remove any User-Generated Content that we deem inappropriate, offensive, illegal, or in violation of our community guidelines, without prior notice. You are solely responsible for the content you post and its legality, reliability, and appropriateness.
+                </p>
+                <p>
+                    <strong>6. Availability and Accuracy:</strong> While SpiceScroll strives to keep the Platform up and running smoothly, we take no responsibility for, and will not be liable for, the Platform being temporarily unavailable due to technical issues beyond our control. We aim for accuracy in all information presented but do not guarantee that all information will always be error-free or up-to-date. Content may be updated or changed without notice.
+                </p>
+                <p>
+                    <strong>7. Limitation of Liability:</strong> In no event will SpiceScroll, its directors, employees, partners, agents, suppliers, or affiliates, be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this Platform. This includes, but is not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Platform; (ii) any conduct or content of any third party on the Platform; (iii) any content obtained from the Platform; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.
+                </p>
+                <p>
+                    <strong>8. Copyright and Intellectual Property:</strong> All content on the SpiceScroll Platform, including but not limited to text, graphics, logos, images, audio clips, video clips, and software, is the property of SpiceScroll or its content suppliers and protected by international copyright laws. The compilation of all content on this Platform is the exclusive property of SpiceScroll. You may not reproduce, duplicate, copy, sell, resell, or exploit any portion of the Platform without express written permission from SpiceScroll.
+                </p>
+                <p>
+                    <strong>9. Changes to Disclaimer:</strong> SpiceScroll reserves the right to modify or replace this disclaimer at any time without prior notice. By continuing to access or use our Platform after any revisions become effective, you agree to be bound by the revised terms. It is your responsibility to review this disclaimer periodically for changes.
+                </p>
+                <p>
+                    <strong>10. Governing Law:</strong> This disclaimer shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions. Our failure to enforce any right or provision of this disclaimer will not be considered a waiver of those rights. If any provision of this disclaimer is held to be invalid or unenforceable by a court, the remaining provisions of this disclaimer will remain in effect.
+                </p>
+                <p>
+                    By using SpiceScroll, you signify your acceptance of this disclaimer. If you do not agree to this disclaimer, please do not use our Platform.
+                </p>
+                <p>
+                    Last updated: July 5, 2025
+                </p>
+                </section>
+        </div>
+    </footer>
+</body>
+</html>

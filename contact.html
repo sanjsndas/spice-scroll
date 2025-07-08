@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiceScroll - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles - Consistent with other pages */
+        :root {
+            --chili-red: #EF5350;
+            --deep-saffron-orange: #FF7043;
+            --scroll-beige: #FFF3E0;
+            --bold-charcoal: #263238;
+            --fresh-herb-green: #81C784;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--bold-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--scroll-beige);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            color: var(--bold-charcoal);
+            margin-bottom: 15px;
+        }
+
+        h1 { font-size: 3.5em; color: var(--chili-red); text-align: center; margin-top: 50px; margin-bottom: 30px; }
+        h2 { font-size: 2.2em; border-bottom: 2px solid var(--deep-saffron-orange); padding-bottom: 10px; margin-top: 40px; }
+        h3 { font-size: 1.6em; color: var(--deep-saffron-orange); margin-top: 30px; }
+        h4 { font-size: 1.3em; color: var(--bold-charcoal); margin-top: 25px; }
+
+        a {
+            color: var(--chili-red);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--deep-saffron-orange);
+        }
+
+        /* Header - Consistent with other pages */
+        header {
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header .logo {
+            font-family: var(--font-secondary);
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--scroll-beige);
+            display: inline-block;
+            position: relative;
+        }
+
+        header .logo::after {
+            content: '🌶️';
+            position: absolute;
+            right: -25px;
+            top: 5px;
+            font-size: 0.7em;
+            color: var(--chili-red);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: var(--scroll-beige);
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: var(--chili-red);
+        }
+
+        /* Contact Section Specific Styles */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-info-card, .contact-form-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .contact-info-card h3, .contact-form-card h3 {
+            color: var(--bold-charcoal);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--fresh-herb-green);
+            padding-bottom: 10px;
+        }
+
+        .contact-info-card p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info-card p strong {
+            margin-right: 10px;
+            color: var(--deep-saffron-orange);
+        }
+
+        .contact-info-card .icon {
+            font-size: 1.2em;
+            margin-right: 8px;
+            color: var(--chili-red);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--bold-charcoal);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: calc(100% - 20px); /* Account for padding */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-primary);
+            font-size: 1em;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            background-color: var(--chili-red);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--deep-saffron-orange);
+        }
+
+        .map-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .map-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            height: 400px; /* Fixed height for map */
+            width: 100%;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .faq-section {
+            margin-top: 60px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .faq-section h2 {
+            border-bottom: 2px solid var(--deep-saffron-orange);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            color: var(--bold-charcoal);
+            margin-top: 0;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .faq-item h3:hover {
+            color: var(--chili-red);
+        }
+
+        .faq-item h3 .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item h3.active .arrow {
+            transform: rotate(90deg);
+        }
+
+        .faq-item p {
+            padding-left: 20px;
+            border-left: 3px solid var(--fresh-herb-green);
+            margin-top: 10px;
+            display: none; /* Hidden by default */
+        }
+
+        .faq-item p.show {
+            display: block;
+        }
+
+
+        /* Footer - Consistent with other pages */
+        footer {
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+
+        footer .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-nav ul li {
+            margin: 0 15px 10px;
+        }
+
+        footer .footer-nav ul li a {
+            color: var(--scroll-beige);
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-nav ul li a:hover {
+            color: var(--chili-red);
+        }
+
+        .footer-info-section {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        .footer-info-section p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Design - Consistent with other pages */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            header nav ul li {
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SpiceScroll</div>
+            <nav>
+                <ul>
+                   <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Get in Touch with SpiceScroll</h1>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1em;">
+                We're thrilled you want to connect with the SpiceScroll team! Whether you have a burning question about a specific spice, need assistance with a recipe, want to share your culinary triumphs, or have any feedback about our platform, this is the place to reach us. Our dedicated team is passionate about global flavors and committed to providing you with the best possible experience. We value every inquiry and look forward to hearing from you.
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <h3>Contact Information</h3>
+                    <p><span class="icon">📧</span> <strong>Email:</strong> <a href="mailto:info@spicescroll.com">info@spicescroll.com</a></p>
+                    <p style="margin-left: 30px; font-size: 0.9em; color: gray;">For general inquiries, recipe questions, or website support.</p>
+                    <p><span class="icon">📞</span> <strong>Phone:</strong> +91 98765 43210</p>
+                    <p style="margin-left: 30px; font-size: 0.9em; color: gray;">Available during business hours for immediate assistance.</p>
+                    <p><span class="icon">📍</span> <strong>Address:</strong></p>
+                    <p style="margin-left: 30px;">SpiceScroll HQ</p>
+                    <p style="margin-left: 30px;">123 Flavor Lane, Culinary District</p>
+                    <p style="margin-left: 30px;">Delhi, India - 110001</p>
+                    <p style="margin-top: 20px;"><strong>Business Hours:</strong></p>
+                    <p style="margin-left: 30px;">Monday - Friday: 9:00 AM - 6:00 PM IST</p>
+                    <p style="margin-left: 30px;">Saturday: 10:00 AM - 2:00 PM IST</p>
+                    <p style="margin-left: 30px;">Sunday: Closed</p>
+                    <p style="margin-top: 20px; font-size: 0.95em;">We aim to respond to all email inquiries within 24-48 business hours. For urgent matters, such as order issues or technical difficulties, please call us during our specified business hours for a quicker resolution. Your patience is appreciated as we strive to provide thorough and helpful responses to every message.</p>
+                </div>
+
+                <div class="contact-form-card">
+                    <h3>Send Us a Message</h3>
+                    <p style="font-size: 0.95em; margin-bottom: 25px;">
+                        Use the form below to send us your questions, feedback, or suggestions. We read every message and appreciate your input as we continue to grow and improve SpiceScroll.
+                    </p>
+                    <form class="contact-form" action="#" method="POST">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" placeholder="e.g., yourname@example.com" required>
+
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" placeholder="e.g., Recipe Question, Order Inquiry, Feedback">
+
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" placeholder="Type your detailed message here..." required></textarea>
+
+                        <button type="submit">Send Message</button>
+                    </form>
+                    <p style="font-size: 0.9em; color: gray; margin-top: 20px;">
+                        By submitting this form, you agree to our <a href="privacy.html">Privacy Policy</a> and acknowledge that your message will be handled in accordance with its terms.
+                    </p>
+                </div>
+            </div>
+
+            <section class="map-section">
+                <h2>Our Global Hub: Find Us on the Map</h2>
+                <p>SpiceScroll's headquarters is nestled in the vibrant Culinary District of Delhi, India. While our flavors span the globe, this is where the magic happens – from recipe development to spice sourcing and community management. Feel free to visit us during business hours, or simply explore our location virtually!</p>
+                <div class="map-container">
+                    <!-- Google Maps Embed Code Placeholder -->
+                    <!-- Replace the iframe src with your actual Google Maps embed code for SpiceScroll HQ -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.261899147551!2d77.2166687149303!3d28.61393958242099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd4a0b0b0b01%3A0x123456789abcdef!2sDelhi%2C%20India!5e0!3m2!1sen!2sin!4v1678888888888!5m2!1sen!2sin"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <h2>Frequently Asked Questions (FAQs)</h2>
+                <p style="text-align: center; margin-bottom: 30px;">Find quick answers to common questions about SpiceScroll, our content, and products.</p>
+
+                <div class="faq-item">
+                    <h3 onclick="toggleFaq(this)">How can I submit my own recipes or cooking tips? <span class="arrow">▶</span></h3>
+                    <p>We love user contributions! You can submit your recipes and cooking tips directly through your user account dashboard once you're logged in. Look for the "Submit Content" or "Share Your Recipe" button. All submissions are reviewed by our editorial team before being published to ensure quality and relevance to the SpiceScroll community. We encourage you to include high-quality photos and detailed instructions to make your recipes shine!</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 onclick="toggleFaq(this)">Do you offer international shipping for your spice products? <span class="arrow">▶</span></h3>
+                    <p>Yes, SpiceScroll is proud to offer international shipping to a growing list of countries. Shipping costs and delivery times vary depending on your location. You can find detailed information about our shipping policies, including a list of countries we ship to and estimated delivery windows, on our "Shipping & Delivery" page in the Spice Shop section. Please note that customs duties and taxes may apply in your country.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 onclick="toggleFaq(this)">How do I reset my password if I've forgotten it? <span class="arrow">▶</span></h3>
+                    <p>If you've forgotten your password, simply click on the "Forgot Password" link on the login page. You'll be prompted to enter your registered email address, and we'll send you a link to securely reset your password. If you encounter any issues, please contact our support team via email or phone, and they will gladly assist you.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 onclick="toggleFaq(this)">Are your spices sustainably sourced and organic? <span class="arrow">▶</span></h3>
+                    <p>SpiceScroll is committed to ethical and sustainable sourcing. We work directly with farmers and cooperatives worldwide to ensure fair trade practices and high-quality products. While not all of our spices are certified organic, we prioritize suppliers who adhere to organic farming principles and minimize the use of pesticides. Detailed sourcing information for each product can be found on its individual product page in our Spice Shop. We believe in transparency from "farm to flavor."</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 onclick="toggleFaq(this)">Can I get personalized recipe recommendations? <span class="arrow">▶</span></h3>
+                    <p>Absolutely! Our "Find Your Flavor" quiz is designed to give you personalized recipe and spice kit recommendations based on your taste preferences, cooking experience, and dietary needs. You can access the quiz from our homepage or the "Interactive Features" section. The more you use SpiceScroll and rate recipes, the more refined and accurate your recommendations will become, helping you discover new culinary delights tailored just for you.</p>
+                </div>
+
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html#recipes">Recipes</a></li>
+                    <li><a href="index.html#spices">Spices</a></li>
+                    <li><a href="index.html#tips">Tips</a></li>
+                    <li><a href="index.html#challenges">Challenges</a></li>
+                    <li><a href="index.html#shop">Shop</a></li>
+                    <li><a href="index.html#community">Community</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2025 SpiceScroll. All rights reserved. Unroll the World of Flavor.</p>
+            <div class="footer-info-section">
+                <p><strong>Customer Satisfaction:</strong> For detailed information on our commitment to your satisfaction, please visit our <a href="index.html#customer-satisfaction" style="color: var(--fresh-herb-green);">Customer Satisfaction section</a> on the homepage.</p>
+                <p><strong>Disclaimer:</strong> For a comprehensive overview of our disclaimer, please refer to the <a href="index.html#disclaimer" style="color: var(--fresh-herb-green);">Disclaimer section</a> on the homepage.</p>
+                <p><strong>Address:</strong> SpiceScroll HQ, 123 Flavor Lane, Culinary District, Delhi, India - 110001</p>
+                <p><strong>Contact:</strong> info@spicescroll.com | +91 98765 43210</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for FAQ accordion
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const arrow = element.querySelector('.arrow');
+
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                element.classList.remove('active');
+            } else {
+                // Close all other open FAQs
+                const openAnswers = document.querySelectorAll('.faq-item p.show');
+                openAnswers.forEach(openAnswer => {
+                    openAnswer.classList.remove('show');
+                    openAnswer.previousElementSibling.classList.remove('active');
+                });
+
+                answer.classList.add('show');
+                element.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

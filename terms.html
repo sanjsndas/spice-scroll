@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiceScroll - Terms and Conditions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles - Consistent with other pages */
+        :root {
+            --chili-red: #EF5350;
+            --deep-saffron-orange: #FF7043;
+            --scroll-beige: #FFF3E0;
+            --bold-charcoal: #263238;
+            --fresh-herb-green: #81C784;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--bold-charcoal);
+            line-height: 1.8; /* Increased line-height for better readability of policy text */
+            margin: 0;
+            padding: 0;
+            background-color: var(--scroll-beige);
+        }
+
+        .container {
+            max-width: 1000px; /* Slightly narrower container for policy text */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            color: var(--bold-charcoal);
+            margin-bottom: 15px;
+        }
+
+        h1 { font-size: 3.5em; color: var(--chili-red); text-align: center; margin-top: 50px; margin-bottom: 30px; }
+        h2 { font-size: 2.2em; border-bottom: 2px solid var(--deep-saffron-orange); padding-bottom: 10px; margin-top: 40px; }
+        h3 { font-size: 1.6em; color: var(--deep-saffron-orange); margin-top: 30px; }
+        h4 { font-size: 1.3em; color: var(--bold-charcoal); margin-top: 25px; }
+
+        a {
+            color: var(--chili-red);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--deep-saffron-orange);
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ol {
+            list-style: decimal;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        /* Header - Consistent with other pages */
+        header {
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header .logo {
+            font-family: var(--font-secondary);
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--scroll-beige);
+            display: inline-block;
+            position: relative;
+        }
+
+        header .logo::after {
+            content: '🌶️';
+            position: absolute;
+            right: -25px;
+            top: 5px;
+            font-size: 0.7em;
+            color: var(--chili-red);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: var(--scroll-beige);
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: var(--chili-red);
+        }
+
+        /* Footer - Consistent with other pages */
+        footer {
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+
+        footer .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-nav ul li {
+            margin: 0 15px 10px;
+        }
+
+        footer .footer-nav ul li a {
+            color: var(--scroll-beige);
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-nav ul li a:hover {
+            color: var(--chili-red);
+        }
+
+        .footer-info-section {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        .footer-info-section p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Design - Consistent with other pages */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            header nav ul li {
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SpiceScroll</div>
+            <nav>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Terms and Conditions</h1>
+            <p><strong>Last Updated: July 5, 2025</strong></p>
+
+            <p>Welcome to SpiceScroll! These Terms and Conditions ("Terms") govern your use of the SpiceScroll website (the "Platform"), including any content, functionality, and services offered on or through SpiceScroll.com. By accessing or using the Platform, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you must not access or use the Platform.</p>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By using the SpiceScroll Platform, you affirm that you are of legal age to form a binding contract with SpiceScroll and meet all of the foregoing eligibility requirements. If you do not meet all of these requirements, you must not access or use the Platform. Your access and use of the Platform is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who access or use the Platform.</p>
+
+            <h2>2. Changes to Terms</h2>
+            <p>We may revise and update these Terms from time to time in our sole discretion. All changes are effective immediately when we post them and apply to all access to and use of the Platform thereafter. Your continued use of the Platform following the posting of revised Terms means that you accept and agree to the changes. You are expected to check this page frequently so you are aware of any changes, as they are binding on you.</p>
+
+            <h2>3. Accessing the Platform and Account Security</h2>
+            <p>We reserve the right to withdraw or amend this Platform, and any service or material we provide on the Platform, in our sole discretion without notice. We will not be liable if for any reason all or any part of the Platform is unavailable at any time or for any period. From time to time, we may restrict access to some parts of the Platform, or the entire Platform, to users, including registered users.</p>
+            <h4>3.1. Account Registration</h4>
+            <p>To access certain features of the Platform, you may be required to register for an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete. You are responsible for safeguarding your password and for any activities or actions under your password. You agree not to disclose your password to any third party. SpiceScroll cannot and will not be liable for any loss or damage arising from your failure to comply with these security obligations.</p>
+            <h4>3.2. Prohibited Uses</h4>
+            <p>You may use the Platform only for lawful purposes and in accordance with these Terms. You agree not to use the Platform:</p>
+            <ul>
+                <li>In any way that violates any applicable federal, state, local, or international law or regulation.</li>
+                <li>For the purpose of exploiting, harming, or attempting to exploit or harm minors in any way by exposing them to inappropriate content or otherwise.</li>
+                <li>To transmit, or procure the sending of, any advertising or promotional material without our prior written consent, including any "junk mail," "chain letter," "spam," or any other similar solicitation.</li>
+                <li>To impersonate or attempt to impersonate SpiceScroll, a SpiceScroll employee, another user, or any other person or entity.</li>
+                <li>To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of the Platform, or which, as determined by us, may harm SpiceScroll or users of the Platform or expose them to liability.</li>
+            </ul>
+
+            <h2>4. Intellectual Property Rights</h2>
+            <p>The Platform and its entire contents, features, and functionality (including but not limited to all information, software, text, displays, images, video, and audio, and the design, selection, and arrangement thereof) are owned by SpiceScroll, its licensors, or other providers of such material and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
+            <h4>4.1. Trademarks</h4>
+            <p>The SpiceScroll name, the SpiceScroll logo, and all related names, logos, product and service names, designs, and slogans are trademarks of SpiceScroll or its affiliates or licensors. You must not use such marks without the prior written permission of SpiceScroll.</p>
+            <h4>4.2. User-Generated Content</h4>
+            <p>By submitting or posting content on the Platform (e.g., recipes, tips, comments, photos), you grant SpiceScroll a worldwide, non-exclusive, royalty-free, transferable, and sublicensable license to use, reproduce, distribute, prepare derivative works of, display, and perform that content in connection with the Platform and SpiceScroll's (and its successors' and affiliates') business, including without limitation for promoting and redistributing part or all of the Platform (and derivative works thereof) in any media formats and through any media channels. You represent and warrant that you own or control all rights in and to the User-Generated Content and have the right to grant the license granted above.</p>
+
+            <h2>5. Reliance on Information Posted</h2>
+            <p>The information presented on or through the Platform is made available solely for general information purposes. We do not warrant the accuracy, completeness, or usefulness of this information. Any reliance you place on such information is strictly at your own risk. We disclaim all liability and responsibility arising from any reliance placed on such materials by you or any other visitor to the Platform, or by anyone who may be informed of any of its contents.</p>
+            <p>This Platform may include content provided by third parties, including materials provided by other users, bloggers, and third-party licensors, syndicators, aggregators, and/or reporting services. All statements and/or opinions expressed in these materials, and all articles and responses to questions and other content, other than the content provided by SpiceScroll, are solely the opinions and the responsibility of the person or entity providing those materials. These materials do not necessarily reflect the opinion of SpiceScroll. We are not responsible, or liable to you or any third party, for the content or accuracy of any materials provided by any third parties.</p>
+
+            <h2>6. Links from the Platform</h2>
+            <p>If the Platform contains links to other sites and resources provided by third parties, these links are provided for your convenience only. This includes links contained in advertisements, including banner advertisements and sponsored links. We have no control over the contents of those sites or resources and accept no responsibility for them or for any loss or damage that may arise from your use of them. If you decide to access any of the third-party websites linked to this Platform, you do so entirely at your own risk and subject to the terms and conditions of use for such websites.</p>
+
+            <h2>7. Disclaimer of Warranties</h2>
+            <p>YOU UNDERSTAND THAT WE CANNOT AND DO NOT GUARANTEE OR WARRANT THAT FILES AVAILABLE FOR DOWNLOADING FROM THE INTERNET OR THE PLATFORM WILL BE FREE OF VIRUSES OR OTHER DESTRUCTIVE CODE. YOU ARE RESPONSIBLE FOR IMPLEMENTING SUFFICIENT PROCEDURES AND CHECKPOINTS TO SATISFY YOUR PARTICULAR REQUIREMENTS FOR ANTI-VIRUS PROTECTION AND ACCURACY OF DATA INPUT AND OUTPUT, AND FOR MAINTAINING A MEANS EXTERNAL TO OUR SITE FOR ANY RECONSTRUCTION OF ANY LOST DATA. TO THE FULLEST EXTENT PROVIDED BY LAW, WE WILL NOT BE LIABLE FOR ANY LOSS OR DAMAGE CAUSED BY A DISTRIBUTED DENIAL-OF-SERVICE ATTACK, VIRUSES, OR OTHER TECHNOLOGICALLY HARMFUL MATERIAL THAT MAY INFECT YOUR COMPUTER EQUIPMENT, COMPUTER PROGRAMS, DATA, OR OTHER PROPRIETARY MATERIAL DUE TO YOUR USE OF THE PLATFORM OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE PLATFORM OR TO YOUR DOWNLOADING OF ANY CONTENT POSTED ON IT, OR ON ANY WEBSITE LINKED TO IT.</p>
+            <p>YOUR USE OF THE PLATFORM, ITS CONTENT, AND ANY SERVICES OR ITEMS OBTAINED THROUGH THE PLATFORM IS AT YOUR OWN RISK. THE PLATFORM, ITS CONTENT, AND ANY SERVICES OR ITEMS OBTAINED THROUGH THE PLATFORM ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. NEITHER SPICESCROLL NOR ANY PERSON ASSOCIATED WITH SPICESCROLL MAKES ANY WARRANTY OR REPRESENTATION WITH RESPECT TO THE COMPLETENESS, SECURITY, RELIABILITY, QUALITY, ACCURACY, OR AVAILABILITY OF THE PLATFORM. WITHOUT LIMITING THE FOREGOING, NEITHER SPICESCROLL NOR ANYONE ASSOCIATED WITH SPICESCROLL REPRESENTS OR WARRANTS THAT THE PLATFORM, ITS CONTENT, OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE PLATFORM WILL BE ACCURATE, RELIABLE, ERROR-FREE, OR UNINTERRUPTED, THAT DEFECTS WILL BE CORRECTED, THAT OUR SITE OR THE SERVER THAT MAKES IT AVAILABLE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS, OR THAT THE PLATFORM OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE PLATFORM WILL OTHERWISE MEET YOUR NEEDS OR EXPECTATIONS.</p>
+            <p>TO THE FULLEST EXTENT PROVIDED BY LAW, SPICESCROLL HEREBY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, AND FITNESS FOR PARTICULAR PURPOSE.</p>
+
+            <h2>8. Limitation on Liability</h2>
+            <p>TO THE FULLEST EXTENT PROVIDED BY LAW, IN NO EVENT WILL SPICESCROLL, ITS AFFILIATES, OR THEIR LICENSORS, SERVICE PROVIDERS, EMPLOYEES, AGENTS, OFFICERS, OR DIRECTORS BE LIABLE FOR DAMAGES OF ANY KIND, UNDER ANY LEGAL THEORY, ARISING OUT OF OR IN CONNECTION WITH YOUR USE, OR INABILITY TO USE, THE PLATFORM, ANY WEBSITES LINKED TO IT, ANY CONTENT ON THE PLATFORM OR SUCH OTHER WEBSITES, INCLUDING ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO, PERSONAL INJURY, PAIN AND SUFFERING, EMOTIONAL DISTRESS, LOSS OF REVENUE, LOSS OF PROFITS, LOSS OF BUSINESS OR ANTICIPATED SAVINGS, LOSS OF USE, LOSS OF GOODWILL, LOSS OF DATA, AND WHETHER CAUSED BY TORT (INCLUDING NEGLIGENCE), BREACH OF CONTRACT, OR OTHERWISE, EVEN IF FORESEEABLE.</p>
+            <p>THE FOREGOING DOES NOT AFFECT ANY LIABILITY THAT CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.</p>
+
+            <h2>9. Indemnification</h2>
+            <p>You agree to defend, indemnify, and hold harmless SpiceScroll, its affiliates, licensors, and service providers, and its and their respective officers, directors, employees, contractors, agents, licensors, suppliers, successors, and assigns from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms of Use or your use of the Platform, including, but not limited to, your User-Generated Content, any use of the Platform's content, services, and products other than as expressly authorized in these Terms of Use, or your use of any information obtained from the Platform.</p>
+
+            <h2>10. Governing Law and Jurisdiction</h2>
+            <p>All matters relating to the Platform and these Terms, and any dispute or claim arising therefrom or related thereto (in each case, including non-contractual disputes or claims), shall be governed by and construed in accordance with the internal laws of India without giving effect to any choice or conflict of law provision or rule. Any legal suit, action, or proceeding arising out of, or related to, these Terms or the Platform shall be instituted exclusively in the courts of Delhi, India, although we retain the right to bring any suit, action, or proceeding against you for breach of these Terms in your country of residence or any other relevant country.</p>
+
+            <h2>11. Entire Agreement</h2>
+            <p>The Terms of Use and our Privacy Policy constitute the sole and entire agreement between you and SpiceScroll regarding the Platform and supersede all prior and contemporaneous understandings, agreements, representations, and warranties, both written and oral, regarding the Platform.</p>
+
+            <h2>12. Contact Information</h2>
+            <p>To ask questions or comment about these Terms and Conditions, contact us at:</p>
+            <p><strong>Email:</strong> legal@spicescroll.com</p>
+            <p>Or by mail at:</p>
+            <p>SpiceScroll HQ</p>
+            <p>123 Flavor Lane, Culinary District</p>
+            <p>Delhi, India - 110001</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html#recipes">Recipes</a></li>
+                    <li><a href="index.html#spices">Spices</a></li>
+                    <li><a href="index.html#tips">Tips</a></li>
+                    <li><a href="index.html#challenges">Challenges</a></li>
+                    <li><a href="index.html#shop">Shop</a></li>
+                    <li><a href="index.html#community">Community</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2025 SpiceScroll. All rights reserved. Unroll the World of Flavor.</p>
+            <div class="footer-info-section">
+                <p><strong>Customer Satisfaction:</strong> For detailed information on our commitment to your satisfaction, please visit our <a href="index.html#customer-satisfaction" style="color: var(--fresh-herb-green);">Customer Satisfaction section</a> on the homepage.</p>
+                <p><strong>Disclaimer:</strong> For a comprehensive overview of our disclaimer, please refer to the <a href="index.html#disclaimer" style="color: var(--fresh-herb-green);">Disclaimer section</a> on the homepage.</p>
+                <p><strong>Address:</strong> SpiceScroll HQ, 123 Flavor Lane, Culinary District, Delhi, India - 110001</p>
+                <p><strong>Contact:</strong> info@spicescroll.com | +91 98765 43210</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiceScroll - Privacy Policy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles - Consistent with other pages */
+        :root {
+            --chili-red: #EF5350;
+            --deep-saffron-orange: #FF7043;
+            --scroll-beige: #FFF3E0;
+            --bold-charcoal: #263238;
+            --fresh-herb-green: #81C784;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--bold-charcoal);
+            line-height: 1.8; /* Increased line-height for better readability of policy text */
+            margin: 0;
+            padding: 0;
+            background-color: var(--scroll-beige);
+        }
+
+        .container {
+            max-width: 1000px; /* Slightly narrower container for policy text */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            color: var(--bold-charcoal);
+            margin-bottom: 15px;
+        }
+
+        h1 { font-size: 3.5em; color: var(--chili-red); text-align: center; margin-top: 50px; margin-bottom: 30px; }
+        h2 { font-size: 2.2em; border-bottom: 2px solid var(--deep-saffron-orange); padding-bottom: 10px; margin-top: 40px; }
+        h3 { font-size: 1.6em; color: var(--deep-saffron-orange); margin-top: 30px; }
+        h4 { font-size: 1.3em; color: var(--bold-charcoal); margin-top: 25px; }
+
+        a {
+            color: var(--chili-red);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--deep-saffron-orange);
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ol {
+            list-style: decimal;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        /* Header - Consistent with other pages */
+        header {
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header .logo {
+            font-family: var(--font-secondary);
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--scroll-beige);
+            display: inline-block;
+            position: relative;
+        }
+
+        header .logo::after {
+            content: '🌶️';
+            position: absolute;
+            right: -25px;
+            top: 5px;
+            font-size: 0.7em;
+            color: var(--chili-red);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: var(--scroll-beige);
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: var(--chili-red);
+        }
+
+        /* Footer - Consistent with other pages */
+        footer {
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+
+        footer .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-nav ul li {
+            margin: 0 15px 10px;
+        }
+
+        footer .footer-nav ul li a {
+            color: var(--scroll-beige);
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-nav ul li a:hover {
+            color: var(--chili-red);
+        }
+
+        .footer-info-section {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        .footer-info-section p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Design - Consistent with other pages */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            header nav ul li {
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SpiceScroll</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Privacy Policy</h1>
+            <p><strong>Last Updated: July 5, 2025</strong></p>
+
+            <p>Welcome to SpiceScroll! We are committed to protecting your privacy. This Privacy Policy explains how SpiceScroll ("we," "us," or "our") collects, uses, discloses, and safeguards your information when you visit our website, SpiceScroll.com (the "Platform"), including any other media form, media channel, mobile website, or mobile application related or connected thereto. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the Platform.</p>
+
+            <h2>1. Information We Collect</h2>
+            <p>We collect various types of information to provide and improve our services to you. This includes both information you provide directly to us and information we collect automatically as you use our Platform.</p>
+
+            <h3>1.1. Personal Information You Disclose to Us</h3>
+            <p>We collect personal information that you voluntarily provide to us when you register on the Platform, express an interest in obtaining information about us or our products and services, when you participate in activities on the Platform (such as posting recipes, submitting tips, participating in challenges, or making purchases), or otherwise when you contact us.</p>
+            <ul>
+                <li><strong>Account Data:</strong> When you create an account, we may collect your username, email address, password, and profile picture.</li>
+                <li><strong>Contact Data:</strong> If you contact us for support or inquiries, we may collect your name, email address, and the content of your communication.</li>
+                <li><strong>Transaction Data:</strong> If you make purchases through our Spice Shop, we collect information necessary to process your order, such as your shipping address, billing address, and payment information (though actual payment card details are typically processed by third-party payment processors and not stored by us).</li>
+                <li><strong>User-Generated Content:</strong> Any content you submit to the Platform, such as recipes, cooking tips, comments, reviews, challenge entries, and blog post comments, will be collected. This content may contain personal information if you choose to include it.</li>
+                <li><strong>Survey and Feedback Data:</strong> Information you provide when you participate in surveys, quizzes (like "Find Your Flavor"), or provide feedback.</li>
+            </ul>
+
+            <h3>1.2. Information Automatically Collected</h3>
+            <p>When you visit, use, or navigate the Platform, we may automatically collect certain information. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Platform, and other technical information. This information is primarily needed to maintain the security and operation of our Platform, and for our internal analytics and reporting purposes.</p>
+            <ul>
+                <li><strong>Log and Usage Data:</strong> Server logs may collect standard log data, including your IP address, browser type, internet service provider, referring/exit pages, and date/time stamps.</li>
+                <li><strong>Device Data:</strong> Information about your computer, phone, tablet, or other device you use to access the Platform. This may include your device ID, model, and manufacturer.</li>
+                <li><strong>Location Data:</strong> We may collect location data from your device, but only if you grant us permission through your device settings.</li>
+                <li><strong>Cookies and Similar Technologies:</strong> We may use cookies, web beacons, and other tracking technologies to collect and store your information. For more information on how we use these technologies, please see our Cookie Policy section below.</li>
+            </ul>
+
+            <h2>2. How We Use Your Information</h2>
+            <p>We use personal information collected via our Platform for a variety of business purposes, including:</p>
+            <ul>
+                <li><strong>To Facilitate Account Creation and Logon Process:</strong> If you choose to link your account with us to a third-party account (e.g., Google or social media), we use the information you allowed us to collect from those third parties to facilitate account creation and logon process.</li>
+                <li><strong>To Fulfill and Manage Your Orders:</strong> We may use your information to process your purchases made through the Platform.</li>
+                <li><strong>To Deliver and Improve Our Services:</strong> This includes providing recipes, spice information, cooking tips, and other content, as well as enhancing the functionality and user experience of our Platform.</li>
+                <li><strong>To Send You Marketing and Promotional Communications:</strong> We and/or our third-party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt-out of our marketing emails at any time.</li>
+                <li><strong>To Post Testimonials:</strong> We post testimonials on our Platform that may contain personal information. Prior to posting a testimonial, we will obtain your consent to use your name and the content of the testimonial.</li>
+                <li><strong>To Request Feedback:</strong> We may use your information to request feedback and to contact you about your use of our Platform.</li>
+                <li><strong>To Enable User-to-User Communications:</strong> If you choose to use our community features, we may use your information to enable communication between users.</li>
+                <li><strong>To Manage User Accounts:</strong> We may use your information for the purposes of managing your account and keeping it in working order.</li>
+                <li><strong>To Deliver Targeted Advertising to You:</strong> We may use your information to develop and display content and advertising (and work with third parties who do so) tailored to your interests and/or location and to measure its effectiveness.</li>
+                <li><strong>To Administer Prize Draws and Competitions:</strong> If you choose to participate in our challenges or competitions, we may use your information to administer these programs.</li>
+                <li><strong>To Protect Our Platform:</strong> We may use your information as part of our efforts to keep our Platform safe and secure (e.g., for fraud monitoring and prevention).</li>
+                <li><strong>To Respond to Legal Requests and Prevent Harm:</strong> If we receive a subpoena or other legal request, we may need to inspect the data we hold to determine how to respond.</li>
+                <li><strong>For Other Business Purposes:</strong> We may use your information for other business purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns, and to evaluate and improve our Platform, products, services, marketing, and your experience.</li>
+            </ul>
+
+            <h2>3. How We Share Your Information</h2>
+            <p>We may share your information in the following situations:</p>
+            <ul>
+                <li><strong>With Your Consent:</strong> We may disclose your personal information for any purpose with your consent.</li>
+                <li><strong>Vendors, Consultants, and Other Third-Party Service Providers:</strong> We may share your data with third-party vendors, service providers, contractors, or agents who perform services for us or on our behalf and require access to such information to do that work. Examples include: payment processing, data analysis, email delivery, hosting services, customer service, and marketing efforts.</li>
+                <li><strong>Business Transfers:</strong> We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
+                <li><strong>Affiliates:</strong> We may share your information with our affiliates, in which case we will require those affiliates to honor this privacy policy. Affiliates include our parent company and any subsidiaries, joint venture partners, or other companies that we control or that are under common control with us.</li>
+                <li><strong>Other Users:</strong> When you share personal information (e.g., by posting user-generated content, participating in challenges) or otherwise interact with public areas of the Platform, such personal information may be viewed by all users and may be publicly distributed outside the Platform in perpetuity. If you interact with other users of our Platform and register through a social network (such as Facebook, Instagram, etc.), your contacts on the social network will see your name, profile photo, and descriptions of your activity.</li>
+                <li><strong>Legal Obligations:</strong> We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process, such as in response to a court order or a subpoena (including in response to public authorities to meet national security or law enforcement requirements).</li>
+                <li><strong>To Protect Rights and Safety:</strong> We may disclose your information where we believe it is necessary to investigate, prevent, or take action regarding potential violations of our policies, suspected fraud, situations involving potential threats to the safety of any person, and illegal activities, or as evidence in litigation in which we are involved.</li>
+            </ul>
+
+            <h2>4. Your Data Protection Rights</h2>
+            <p>In some regions (like the European Economic Area, UK, and California), you have certain rights under applicable data protection laws. These may include the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> Request access to your personal data.</li>
+                <li><strong>Rectification:</strong> Request correction of inaccurate personal data.</li>
+                <li><strong>Erasure:</strong> Request erasure of your personal data.</li>
+                <li><strong>Restriction:</strong> Request restriction of processing your personal data.</li>
+                <li><strong>Objection:</strong> Object to the processing of your personal data.</li>
+                <li><strong>Data Portability:</strong> Request data portability.</li>
+                <li><strong>Withdraw Consent:</strong> Withdraw your consent at any time where we are relying on consent to process your personal information.</li>
+                <li><strong>Lodge a Complaint:</strong> Lodge a complaint with a supervisory authority.</li>
+            </ul>
+            <p>If you would like to exercise any of these rights, please contact us using the contact details provided below. We will respond to your request in accordance with applicable data protection laws.</p>
+
+            <h2>5. Data Security</h2>
+            <p>We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we do our best to protect your personal information, transmission of personal information to and from our Platform is at your own risk. You should only access the services within a secure environment.</p>
+
+            <h2>6. Cookie Policy</h2>
+            <p>We use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. A cookie is a small text file that is stored on your device when you visit a website. We use cookies to:</p>
+            <ul>
+                <li><strong>Essential Cookies:</strong> Enable core functionality like security, network management, and accessibility. You may disable these by changing your browser settings, but this may affect how the Platform functions.</li>
+                <li><strong>Performance and Functionality Cookies:</strong> Collect information about how you use our Platform (e.g., pages visited, links clicked) to improve performance and provide a more personalized experience.</li>
+                <li><strong>Analytics and Customization Cookies:</strong> Help us understand how the Platform is being used, how effective our marketing campaigns are, and to help us customize our Platform for you.</li>
+                <li><strong>Advertising Cookies:</strong> Used to make advertising messages more relevant to you. They perform functions like preventing the same ad from continuously reappearing, ensuring that ads are properly displayed for advertisers, and in some cases selecting advertisements that are based on your interests.</li>
+            </ul>
+            <p>Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Platform. For more information on how to control cookies, check your browser or device settings for how you can control or reject cookies.</p>
+
+            <h2>7. Children's Privacy</h2>
+            <p>We do not knowingly solicit data from or market to children under 13 years of age. By using the Platform, you represent that you are at least 13 or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the Platform. If we learn that personal information from users less than 13 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 13, please contact us at info@spicescroll.com.</p>
+
+            <h2>8. Changes to This Privacy Policy</h2>
+            <p>We may update this privacy policy from time to time. The updated version will be indicated by an updated "Last Updated" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.</p>
+
+            <h2>9. Contact Us</h2>
+            <p>If you have questions or comments about this privacy policy, you may contact our Data Protection Officer (DPO) by email at:</p>
+            <p><strong>Email:</strong> privacy@spicescroll.com</p>
+            <p>Or by mail at:</p>
+            <p>SpiceScroll HQ</p>
+            <p>123 Flavor Lane, Culinary District</p>
+            <p>Delhi, India - 110001</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html#recipes">Recipes</a></li>
+                    <li><a href="index.html#spices">Spices</a></li>
+                    <li><a href="index.html#tips">Tips</a></li>
+                    <li><a href="index.html#challenges">Challenges</a></li>
+                    <li><a href="index.html#shop">Shop</a></li>
+                    <li><a href="index.html#community">Community</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2025 SpiceScroll. All rights reserved. Unroll the World of Flavor.</p>
+            <div class="footer-info-section">
+                <p><strong>Customer Satisfaction:</strong> For detailed information on our commitment to your satisfaction, please visit our <a href="index.html#customer-satisfaction" style="color: var(--fresh-herb-green);">Customer Satisfaction section</a> on the homepage.</p>
+                <p><strong>Disclaimer:</strong> For a comprehensive overview of our disclaimer, please refer to the <a href="index.html#disclaimer" style="color: var(--fresh-herb-green);">Disclaimer section</a> on the homepage.</p>
+                <p><strong>Address:</strong> SpiceScroll HQ, 123 Flavor Lane, Culinary District, Delhi, India - 110001</p>
+                <p><strong>Contact:</strong> info@spicescroll.com | +91 98765 43210</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiceScroll - Cookie Policy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles - Consistent with other pages */
+        :root {
+            --chili-red: #EF5350;
+            --deep-saffron-orange: #FF7043;
+            --scroll-beige: #FFF3E0;
+            --bold-charcoal: #263238;
+            --fresh-herb-green: #81C784;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--bold-charcoal);
+            line-height: 1.8; /* Increased line-height for better readability of policy text */
+            margin: 0;
+            padding: 0;
+            background-color: var(--scroll-beige);
+        }
+
+        .container {
+            max-width: 1000px; /* Slightly narrower container for policy text */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            color: var(--bold-charcoal);
+            margin-bottom: 15px;
+        }
+
+        h1 { font-size: 3.5em; color: var(--chili-red); text-align: center; margin-top: 50px; margin-bottom: 30px; }
+        h2 { font-size: 2.2em; border-bottom: 2px solid var(--deep-saffron-orange); padding-bottom: 10px; margin-top: 40px; }
+        h3 { font-size: 1.6em; color: var(--deep-saffron-orange); margin-top: 30px; }
+        h4 { font-size: 1.3em; color: var(--bold-charcoal); margin-top: 25px; }
+
+        a {
+            color: var(--chili-red);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--deep-saffron-orange);
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ol {
+            list-style: decimal;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        /* Header - Consistent with other pages */
+        header {
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header .logo {
+            font-family: var(--font-secondary);
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--scroll-beige);
+            display: inline-block;
+            position: relative;
+        }
+
+        header .logo::after {
+            content: '🌶️';
+            position: absolute;
+            right: -25px;
+            top: 5px;
+            font-size: 0.7em;
+            color: var(--chili-red);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: var(--scroll-beige);
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: var(--chili-red);
+        }
+
+        /* Footer - Consistent with other pages */
+        footer {
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+
+        footer .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-nav ul li {
+            margin: 0 15px 10px;
+        }
+
+        footer .footer-nav ul li a {
+            color: var(--scroll-beige);
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-nav ul li a:hover {
+            color: var(--chili-red);
+        }
+
+        .footer-info-section {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        .footer-info-section p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Cookie Consent Dialogue Box */
+        .cookie-consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bold-charcoal);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            z-index: 1000; /* Ensure it's on top */
+        }
+
+        .cookie-consent-banner p {
+            margin: 0;
+            font-size: 1em;
+            line-height: 1.5;
+            max-width: 800px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cookie-consent-banner .cookie-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cookie-consent-banner button {
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cookie-consent-banner button.accept-cookies {
+            background-color: var(--fresh-herb-green);
+            color: white;
+        }
+
+        .cookie-consent-banner button.accept-cookies:hover {
+            background-color: darken(var(--fresh-herb-green), 10%); /* Example */
+            background-color: #68b06b;
+        }
+
+        .cookie-consent-banner button.decline-cookies {
+            background-color: transparent;
+            color: var(--chili-red);
+            border-color: var(--chili-red);
+        }
+
+        .cookie-consent-banner button.decline-cookies:hover {
+            background-color: var(--chili-red);
+            color: white;
+        }
+
+        .cookie-consent-banner button.manage-cookies {
+            background-color: transparent;
+            color: var(--deep-saffron-orange);
+            border-color: var(--deep-saffron-orange);
+        }
+
+        .cookie-consent-banner button.manage-cookies:hover {
+            background-color: var(--deep-saffron-orange);
+            color: white;
+        }
+
+        /* Responsive Design - Consistent with other pages */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            header nav ul li {
+                margin: 5px 0;
+            }
+            .cookie-consent-banner {
+                padding: 15px;
+            }
+            .cookie-consent-banner p {
+                font-size: 0.9em;
+            }
+            .cookie-consent-banner .cookie-buttons button {
+                padding: 8px 18px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.8em; }
+            .cookie-consent-banner .cookie-buttons {
+                flex-direction: column;
+            }
+            .cookie-consent-banner .cookie-buttons button {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SpiceScroll</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Our Cookie Policy</h1>
+            <p><strong>Last Updated: July 5, 2025</strong></p>
+
+            <p>This Cookie Policy explains how SpiceScroll ("we," "us," or "our") uses cookies and similar technologies to recognize you when you visit our website at SpiceScroll.com ("Platform"). It explains what these technologies are and why we use them, as well as your rights to control our use of them. We are committed to transparency regarding our data practices and want to ensure you have a clear understanding of how cookies impact your experience on our platform. This policy is designed to be easily understandable, providing you with the necessary information to make informed decisions about your privacy preferences while exploring the world of flavor with SpiceScroll. Your trust is paramount to us, and this policy outlines our dedication to protecting your digital footprint as you navigate our culinary world. We regularly review and update our cookie practices to align with the latest industry standards and regulatory requirements, ensuring your data is handled with the utmost care and respect.</p>
+
+            <h2>What are Cookies?</h2>
+            <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. These files contain information that is transferred to your computer's hard drive. They are widely used by website owners to make their websites work, or to work more efficiently, by enabling features such as remembering your login details, storing shopping cart items, or personalizing content based on your browsing history. Cookies also provide website owners with valuable reporting information, such as visitor numbers and popular pages, which helps in improving website performance and user experience. Cookies set by the website owner (in this case, SpiceScroll) are called "first-party cookies." These are essential for basic site functionality and to provide services directly from our domain. They help us understand how you interact with our site, allowing us to enhance features and ensure a seamless user journey. Cookies set by parties other than the website owner are called "third-party cookies." Third-party cookies enable third-party features or functionality to be provided on or through the website (e.g., advertising, interactive content, and analytics). The parties that set these third-party cookies can recognize your computer both when it visits the website in question and also when it visits certain other websites, allowing for cross-site tracking and personalized content delivery. This is often used by advertisers to build profiles of your interests based on your online activity, which then informs the ads you see across different platforms. We carefully select our third-party partners to ensure they adhere to high data privacy standards.</p>
+
+            <h2>Why do we use Cookies?</h2>
+            <p>We use first-party and third-party cookies for several reasons, all aimed at enhancing your SpiceScroll experience and ensuring the smooth operation of our Platform. Some cookies are absolutely required for technical reasons for our Platform to operate correctly and securely; we refer to these as "essential" or "strictly necessary" cookies. Without these, core functionalities like user authentication, maintaining your session, or processing transactions would not be possible. These cookies are crucial for the fundamental integrity and security of our website, ensuring that your interactions are safe and reliable. Other cookies, while non-essential, enable us to track and analyze user behavior in an aggregated and anonymous manner. This helps us understand how our users interact with the Platform, which content is most popular, and where we can make improvements. For example, SpiceScroll uses cookies to remember your preferences, such as your preferred language or region, ensuring a consistent and personalized browsing experience without requiring you to re-enter information. They also help us keep you logged in to your account, so you don't have to sign in every time you navigate to a new page, thus streamlining your access to our vast library of recipes and spice knowledge. Furthermore, third parties serve cookies through our Platform for various purposes, including advertising, detailed analytics, and integrating social media functionalities. This allows us to present you with more relevant content and advertisements tailored to your interests, understand our audience better to refine our offerings, and offer seamless social sharing options, enabling you to connect with the SpiceScroll community and beyond. The use of cookies is a standard practice across most modern websites to provide a rich, interactive, and tailored online experience, and our usage is always with your privacy and enhanced user experience in mind.</p>
+
+            <h2>Types of Cookies We Use</h2>
+            <p>The specific types of first-party and third-party cookies served through our Platform and the purposes they perform are described below. Understanding these categories will help you make informed decisions about your cookie preferences and how your data is utilized to improve your interaction with SpiceScroll. Each category serves a distinct function, contributing to a comprehensive and optimized online experience.</p>
+
+            <h3>3.1. Essential Cookies (Strictly Necessary Cookies)</h3>
+            <p>These cookies are fundamental to the operation of our Platform and cannot be switched off in our systems. They are strictly necessary to provide you with services available through our Platform and to enable you to use some of its core features, such as accessing secure areas of the website, adding items to your shopping cart, or completing online forms for registration or purchases. Without these cookies, critical services like user authentication, maintaining your session state as you browse different pages, or securely processing e-billing transactions simply cannot be provided. They are typically set only in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in, or filling in forms. Because these cookies are vital for the basic functionality and security of the website, they do not require your explicit consent under most privacy regulations, as their purpose is solely to enable the transmission of a communication over an electronic communications network, or to provide an information society service explicitly requested by the subscriber or user. You can, of course, set your browser to block or alert you about these cookies, but please be aware that if you do so, some parts of the site will not then work correctly, potentially impacting your ability to use the Platform effectively and securely. These cookies ensure the foundational elements of your interaction with SpiceScroll are stable and reliable.</p>
+            <ul>
+                <li><strong>Purpose:</strong> User authentication (e.g., remembering you are logged in across sessions), security features (e.g., protecting against fraudulent logins and cross-site request forgery attacks), session management (e.g., maintaining your shopping cart contents as you navigate the shop), and remembering your explicit cookie consent choices to prevent repeated pop-ups.</li>
+                <li><strong>Examples:</strong> Session ID cookies that expire when you close your browser, authentication cookies that remember your login status for a set period, and security cookies that detect unusual activity or potential threats.</li>
+                <li><strong>Data Collected:</strong> Typically anonymous session identifiers, security tokens, and basic preference settings directly related to site functionality. No personal data beyond what's essential for the service is collected.</li>
+                <li><strong>Duration:</strong> Mostly session-based (expire when you close your browser) or short-term persistent for security/preference retention (e.g., 30 days for login persistence).</li>
+            </ul>
+
+            <h3>3.2. Performance and Functionality Cookies</h3>
+            <p>These cookies are designed to enhance the performance and functionality of our Platform, making your browsing experience smoother, more efficient, and more personalized. While they are non-essential to the absolute basic use of the website, their absence can significantly impact user convenience and feature availability, leading to a less enjoyable experience. For instance, without these cookies, certain rich content functionality (like embedded videos from our blog, interactive spice maps, or dynamic recipe filters) may not load correctly or as quickly. You might also be required to re-enter login details every time you visit the Platform as we would not be able to remember that you had logged in previously, creating unnecessary friction. These cookies help us remember choices you have made, such as your username, preferred language settings, or the region you are in, and provide enhanced, more personal features like customized recipe recommendations based on your past views. They also assist in optimizing page loading times, ensuring that the website performs efficiently across various devices and network conditions, from desktop to mobile. By allowing these cookies, you contribute to a more seamless and tailored experience on SpiceScroll, where content is presented in your preferred language and layout, and features respond quickly to your interactions, ultimately enriching your culinary exploration.</p>
+            <ul>
+                <li><strong>Purpose:</strong> Remembering user preferences (e.g., language selection, currency, region, display settings like dark mode), optimizing loading times and website performance, providing personalized content recommendations (e.g., "You might also like..."), and enabling interactive features that rely on persistent user settings.</li>
+                <li><strong>Examples:</strong> Cookies that store your preferred language setting for the entire site, cookies that remember your last visited recipe categories to suggest similar content, or cookies that help load content faster from a content delivery network (CDN) by caching elements locally.</li>
+                <li><strong>Data Collected:</strong> Anonymous data about your preferences and site usage patterns, often aggregated to protect your individual privacy. This data helps us understand general user behavior without identifying specific individuals.</li>
+                <li><strong>Duration:</strong> Persistent, varying from a few days (e.g., for temporary session preferences) to several months (e.g., for long-term language settings or content preferences), depending on the specific functionality they support.</li>
+            </ul>
+
+            <h3>3.3. Analytics and Customization Cookies</h3>
+            <p>These cookies play a crucial role in helping us understand how our Platform is being used by our visitors, allowing us to continuously measure and improve its performance and overall user experience. They collect information that is used either in an aggregated and anonymous form to provide us with broad insights into user behavior, or in a way that helps us customize your individual experience based on your interactions. Specifically, they allow us to count visits and traffic sources, which enables us to see which pages are the most and least popular, how visitors navigate through the site, and the effectiveness of our various sections, features, and marketing campaigns. This invaluable data helps us identify areas for improvement, optimize content delivery, refine our recipe categorization, and ensure that our Platform meets the evolving needs and interests of our users. For instance, if we see that a particular "Spice Deep Dive" article is highly popular, we might create more content around similar spices. All information these cookies collect is aggregated and therefore anonymous, meaning it does not directly identify you as an individual. We use this data for statistical purposes to understand trends and patterns, rather than tracking individual users. If you do not allow these cookies, we will have less information about how our site is performing and how users are interacting with it, which will limit our ability to make data-driven improvements to enhance your future experience on SpiceScroll.</p>
+            <ul>
+                <li><strong>Purpose:</strong> Website analytics (e.g., through tools like Google Analytics, Adobe Analytics, or similar platforms) to track site performance, user behavior tracking (e.g., click paths, time spent on specific recipe pages, bounce rates), A/B testing of new features or designs, and general performance monitoring to identify technical issues or bottlenecks.</li>
+                <li><strong>Examples:</strong> Cookies that track the number of unique visitors to the site, the specific pages they view, the duration of their visits, and the path they take through the website. They might also track which buttons are clicked or which search terms are used.</li>
+                <li><strong>Data Collected:</strong> Anonymous usage statistics, browser type, operating system, device type, referring URLs (the website you came from), and basic demographic information (e.g., country, city, but not precise location).</li>
+                <li><strong>Duration:</strong> Persistent, typically ranging from a few months (e.g., for campaign tracking) to two years (e.g., for long-term user recognition in analytics).</li>
+            </ul>
+
+            <h3>3.4. Advertising Cookies (Targeting Cookies)</h3>
+            <p>These cookies are employed by us and our trusted advertising partners to make the advertisements you see across the internet more relevant to you and your interests. They function by tracking your browsing habits across different websites, not just SpiceScroll. This allows advertising companies to build a comprehensive profile of your interests based on your online activity, such as the types of recipes you view, the spices you search for, or the products you browse in our shop. This profile then informs the ads you see on other websites, social media platforms, and online services. These cookies perform crucial functions like preventing the same ad from continuously reappearing, ensuring that advertising campaigns are properly displayed for advertisers, and in some cases, dynamically selecting advertisements that are most likely to resonate with your inferred interests. While these cookies do not store directly personal information like your name, email address, or physical address, they are based on uniquely identifying your browser and internet device through a unique ID. This means they can track your online activity to deliver more personalized ad experiences. If you do not allow these cookies, you will still see advertisements, but they will be less targeted and potentially less relevant to your interests, as they will not be based on your specific browsing behavior or preferences identified through these cookies. Opting out of these cookies can reduce the amount of personalized advertising you encounter online.</p>
+            <ul>
+                <li><strong>Purpose:</strong> Delivering targeted advertising campaigns based on user interests, measuring the effectiveness of ad campaigns (e.g., conversions, clicks), frequency capping (limiting how often you see a particular advertisement), and enabling remarketing efforts (showing ads to users who have previously visited our site).</li>
+                <li><strong>Examples:</strong> Cookies from major ad networks (e.g., Google Ads, Facebook Ads, various programmatic advertising platforms) that track your visits to specific product pages, recipe categories, or content themes on SpiceScroll.</li>
+                <li><strong>Data Collected:</strong> Anonymous identifiers, browsing history across participating websites, inferred interests, and interaction data with advertisements.</li>
+                <li><strong>Duration:</strong> Persistent, varying from a few days (e.g., for short-term campaign targeting) to several months or even years (e.g., for long-term interest profiling), depending on the advertiser's specific policy and the type of cookie.</li>
+            </ul>
+
+            <h3>3.5. Social Networking Cookies</h3>
+            <p>These cookies are set by a range of social media services that we have integrated into our Platform to enhance your ability to interact and share SpiceScroll content with your friends and networks. These services include popular platforms like Facebook, Twitter, Instagram, Pinterest, and others. When you interact with social media buttons or embedded content on our site (e.g., a "Like" button, a shared video), these third-party cookies can be placed on your device. They are capable of tracking your browser across other sites and building up a profile of your interests based on your online activity, not just on SpiceScroll, but across other websites that also use these social media plugins. This comprehensive profile may then impact the content and messages, including advertisements, that you see on those social media platforms and other websites you visit. If you do not allow these cookies, you may find that you are unable to use or see these sharing tools, limiting your ability to seamlessly share your favorite SpiceScroll recipes or articles with your social circles. These cookies facilitate seamless integration between our Platform and your social media accounts, making it easy to share recipes, articles, and challenges with your followers, thereby enhancing your social engagement with SpiceScroll content and extending our community reach. By understanding their function, you can make informed choices about your social media interactions and their associated tracking.</p>
+            <ul>
+                <li><strong>Purpose:</strong> Enabling social media sharing functionalities (e.g., Facebook Like buttons, Twitter Share buttons, Pinterest Save buttons), integrating social media feeds or comments sections, and facilitating social login options (e.g., "Log in with Facebook").</li>
+                <li><strong>Examples:</strong> Cookies from Facebook, Twitter, Instagram, Pinterest, or LinkedIn that track your interactions with their respective buttons or embedded content on our site, or cookies used when you log into SpiceScroll using a social media account.</li>
+                <li><strong>Data Collected:</strong> Information about your interaction with social media features on our site, potentially linking your browsing activity to your social media profile if you are logged in to those platforms. This can include the pages you visit and the content you share.</li>
+                <li><strong>Duration:</strong> Persistent, varying based on the social media platform's specific policy, often ranging from a few months to several years.</li>
+            </ul>
+
+            <h2>How You Can Control Cookies</h2>
+            <p>You have the right to decide whether to accept or reject cookies. You can exercise your cookie preferences through various methods, including by clicking on the appropriate opt-out links provided in the cookie consent banner that appears when you first visit our site, or by setting your preferences directly within your web browser. It's important to understand that most web browsers are initially set to accept cookies by default, as this is how many websites deliver a full and functional experience. However, if you prefer, you can usually choose to set your browser to remove cookies that have already been placed, block certain types of cookies from being placed in the future, or configure your browser to notify you when a cookie is being placed on your device, giving you the option to accept or reject it individually. It's crucial to understand that if you choose to remove cookies or reject cookies, this could affect certain features or services of our Platform, potentially limiting your ability to fully experience all the interactive elements and personalized content that SpiceScroll offers. For instance, you might need to re-enter your login details more frequently, or personalized recipe recommendations might not be as accurate. We encourage you to explore these options to tailor your browsing experience to your comfort level.</p>
+
+            <h3>4.1. Browser Controls</h3>
+            <p>The most common and fundamental way to control cookies is through your web browser settings. Each browser offers a range of options that allow you to manage cookies according to your preferences. You can usually find these settings in the "options," "preferences," or "settings" menu of your browser. These controls typically enable you to delete existing cookies, block all cookies from being set, or configure your browser to notify you when a cookie is being placed on your device, giving you the opportunity to accept or reject it on a case-by-case basis. The process and terminology vary slightly depending on the specific browser you are using. To assist you, we've provided links to the cookie management guides for some of the most popular web browsers. If your browser is not listed, please consult its "Help" section for more detailed instructions specific to your browser version:</p>
+            <ul>
+                <li><a href="https://support.google.com/chrome/answer/95647?hl=en" target="_blank">Cookie settings in Chrome</a>: This comprehensive guide from Google explains how to clear, enable, and manage cookies in Google Chrome, including specific settings for blocking third-party cookies and managing site data.</li>
+                <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Cookie settings in Firefox</a>: Mozilla provides detailed instructions on how to control cookies and site data in Firefox, including options for enhanced tracking protection and managing individual site permissions.</li>
+                <li><a href="https://support.microsoft.com/en-us/topic/delete-and-manage-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank">Cookie settings in Edge</a>: Microsoft Edge offers various options to manage cookies, site permissions, and implement tracking prevention features to control your online privacy.</li>
+                <li><a href="https://support.apple.com/en-in/guide/safari/sfri11471/mac" target="_blank">Cookie settings in Safari</a>: Apple's guide explains how to manage cookies and website data in Safari on macOS, including options to prevent cross-site tracking.</li>
+                <li><a href="https://help.opera.com/en/latest/security-and-privacy/#tracking" target="_blank">Cookie settings in Opera</a>: Learn how to manage cookies and site data in the Opera browser, including settings for privacy and security.</li>
+                <li><a href="https://www.brave.com/privacy/browser-features/#cookies" target="_blank">Cookie settings in Brave</a>: Information on Brave's built-in ad and tracker blocking features, including how to control cookies and other site data for enhanced privacy.</li>
+            </ul>
+            <p>Please note that if you set your browser to disable cookies entirely, you may find that certain sections or features of our Platform, and indeed many other websites you visit, do not work properly. Disabling certain essential or functionality cookies can lead to a less personalized experience, may prevent you from logging in, or may require you to manually input information that would otherwise be remembered for your convenience. We recommend reviewing your browser's settings carefully to balance your privacy preferences with your desired browsing functionality.</p>
+
+            <h3>4.2. Industry Opt-Outs</h3>
+            <p>In addition to browser controls, you can opt-out of targeted advertising from many advertising networks and data providers through industry-specific opt-out tools. These tools allow you to manage your preferences for interest-based advertising across multiple companies that participate in these initiatives. Please note that opting out of interest-based advertising does not mean you will no longer see advertisements; it simply means the ads you see may be less relevant to your interests, as they will not be based on your browsing behavior tracked by these specific advertising cookies. These opt-out mechanisms are typically cookie-based, which means that if you delete your cookies, you will need to opt-out again. For mobile devices, you may have "Limit Ad Tracking" (iOS) or "Opt-out of Ads Personalization" (Android) settings that can control how your device's advertising identifier is used for interest-based advertising across apps and mobile websites. This provides an additional layer of control over personalized advertising.</p>
+            <ul>
+                <li><a href="http://www.aboutads.info/choices/" target="_blank">Digital Advertising Alliance (DAA)</a>: This platform provides a consumer choice tool that allows you to opt-out of interest-based advertising from participating companies across various digital advertising channels. It's a comprehensive resource for managing your ad preferences.</li>
+                <li><a href="http://www.youronlinechoices.com/" target="_blank">European Interactive Digital Advertising Alliance (EDAA)</a>: For users located in Europe, this portal offers a similar mechanism to control online behavioral advertising preferences from companies adhering to the EDAA framework.</li>
+                <li><a href="https://optout.networkadvertising.org/" target="_blank">Network Advertising Initiative (NAI)</a>: The NAI provides a tool that allows consumers to opt-out of interest-based advertising from NAI member companies, focusing on data collected for online advertising.</li>
+                <li><a href="https://myactivity.google.com/myactivity" target="_blank">Google Ad Settings</a>: You can control the ads you see on Google services and across the web by adjusting your Google Ad Settings, which also allows you to turn off ad personalization.</li>
+                <li><a href="https://www.facebook.com/ad_preferences/advertisers/" target="_blank">Facebook Ad Preferences</a>: Manage the information Facebook uses to show you ads, including your interests and advertisers you've interacted with.</li>
+            </ul>
+            <p>It's important to understand that these opt-out tools are specific to the companies that participate in them. You may still receive generic or contextual ads from companies that do not participate in these programs or from platforms where you have not opted out. For the most comprehensive control, a combination of browser settings and industry opt-outs is often recommended.</p>
+
+            <h2>Changes to Our Cookie Policy</h2>
+            <p>We may update this Cookie Policy from time to time in order to reflect, for example, changes to the cookies we use, changes in our operational practices, or for other legal or regulatory reasons. Any revisions will be effective immediately upon posting the updated policy on our Platform. We will clearly indicate the "Last Updated" date at the top of this Cookie Policy to make it easy for you to identify when the most recent changes were made. We are committed to keeping this policy current and transparent, ensuring it accurately reflects our use of cookies and your rights. We encourage you to review this Cookie Policy regularly to stay informed about our use of cookies and related technologies, ensuring you are always aware of how your data is being handled and how you can manage your preferences. Your continued use of the Platform after any changes to this policy will constitute your acceptance of such changes, so please check back periodically for any updates that may affect you. We will also endeavor to notify you of any significant changes through prominent notices on our Platform or via email if you have provided us with your contact information.</p>
+
+            <h2>More Information</h2>
+            <p>If you have any questions or concerns about our use of cookies or other tracking technologies, or if you wish to exercise any of your data protection rights related to cookies, please do not hesitate to contact our Data Protection Officer (DPO) or our dedicated support team. We are committed to addressing your inquiries promptly, transparently, and in accordance with applicable data protection laws. Your feedback is valuable to us as we strive to maintain the highest standards of privacy and user experience. You can reach us by email at <a href="mailto:privacy@spicescroll.com">privacy@spicescroll.com</a>. We value your privacy and are here to help you navigate your cookie preferences effectively, ensuring your culinary journey with SpiceScroll is as secure and enjoyable as possible.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html#recipes">Recipes</a></li>
+                    <li><a href="index.html#spices">Spices</a></li>
+                    <li><a href="index.html#tips">Tips</a></li>
+                    <li><a href="index.html#challenges">Challenges</a></li>
+                    <li><a href="index.html#shop">Shop</a></li>
+                    <li><a href="index.html#community">Community</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2025 SpiceScroll. All rights reserved. Unroll the World of Flavor.</p>
+            <div class="footer-info-section">
+                <p><strong>Customer Satisfaction:</strong> For detailed information on our commitment to your satisfaction, please visit our <a href="index.html#customer-satisfaction" style="color: var(--fresh-herb-green);">Customer Satisfaction section</a> on the homepage.</p>
+                <p><strong>Disclaimer:</strong> For a comprehensive overview of our disclaimer, please refer to the <a href="index.html#disclaimer" style="color: var(--fresh-herb-green);">Disclaimer section</a> on the homepage.</p>
+                <p><strong>Address:</strong> SpiceScroll HQ, 123 Flavor Lane, Culinary District, Delhi, India - 110001</p>
+                <p><strong>Contact:</strong> info@spicescroll.com | +91 98765 43210</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Dialogue Box -->
+    <div id="cookieConsentBanner" class="cookie-consent-banner">
+        <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All," you consent to our use of cookies. You can manage your preferences or decline all non-essential cookies by clicking "Manage Preferences" or "Decline All." For more information, please read our <a href="cookies.html" style="color: var(--deep-saffron-orange);">Cookie Policy</a>.</p>
+        <div class="cookie-buttons">
+            <button class="accept-cookies" onclick="acceptCookies()">Accept All</button>
+            <button class="decline-cookies" onclick="declineCookies()">Decline All</button>
+            <button class="manage-cookies" onclick="manageCookiePreferences()">Manage Preferences</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Function to get a cookie
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i=0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Function to accept all cookies
+        function acceptCookies() {
+            setCookie('cookie_consent', 'accepted', 365); // Store consent for 1 year
+            document.getElementById('cookieConsentBanner').style.display = 'none';
+            // Here you would typically load analytics scripts, advertising scripts etc.
+            console.log('Cookies accepted.');
+        }
+
+        // Function to decline all non-essential cookies
+        function declineCookies() {
+            setCookie('cookie_consent', 'declined', 365); // Store decline for 1 year
+            document.getElementById('cookieConsentBanner').style.display = 'none';
+            // Here you would ensure non-essential cookies are not set
+            console.log('Cookies declined.');
+        }
+
+        // Function to manage cookie preferences (could redirect to a settings page or open a modal)
+        function manageCookiePreferences() {
+            // For this example, we'll just log and hide. In a real app, this would open a detailed preference modal.
+            console.log('Managing cookie preferences...');
+            // Example: Redirect to a dedicated cookie settings page if you had one
+            // window.location.href = 'cookie-settings.html';
+            // For now, just hide the banner and log.
+            document.getElementById('cookieConsentBanner').style.display = 'none';
+        }
+
+        // Check for cookie consent on page load
+        window.onload = function() {
+            const consent = getCookie('cookie_consent');
+            if (consent === 'accepted' || consent === 'declined') {
+                document.getElementById('cookieConsentBanner').style.display = 'none';
+            } else {
+                document.getElementById('cookieConsentBanner').style.display = 'flex'; // Show if no consent
+            }
+        };
+    </script>
+</body>
+</html>
